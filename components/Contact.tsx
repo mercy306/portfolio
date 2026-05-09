@@ -10,42 +10,42 @@ export default function Contact() {
     email: '',
     message: '',
   });
-  const [errors, setErrors] = useState<{[key: string]: string}>({});
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const validateForm = () => {
-    const newErrors: {[key: string]: string} = {};
-    
+    const newErrors: { [key: string]: string } = {};
+
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
     }
-    
+
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email';
     }
-    
+
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
     } else if (formData.message.trim().length < 10) {
       newErrors.message = 'Message must be at least 10 characters';
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
-    
+
     setIsSubmitting(true);
-    
+
     // TODO: Integrate with EmailJS, Formspree, or your backend API
     // Example with Formspree:
     // try {
@@ -61,15 +61,15 @@ export default function Contact() {
     // } catch (error) {
     //   console.error('Error submitting form:', error);
     // }
-    
+
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     console.log('Form submitted:', formData);
     setSubmitSuccess(true);
     setFormData({ name: '', email: '', message: '' });
     setIsSubmitting(false);
-    
+
     // Hide success message after 5 seconds
     setTimeout(() => setSubmitSuccess(false), 5000);
   };
@@ -93,11 +93,11 @@ export default function Contact() {
     <section id="contact" className="py-20 relative overflow-hidden bg-slate-100 dark:bg-slate-950">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-blue-100 via-slate-100 to-cyan-100 dark:from-slate-900 dark:via-slate-950/10 dark:to-slate-950 -z-10"></div>
-      
+
       {/* Decorative glow effects */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/8 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/8 rounded-full blur-3xl"></div>
-      
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -125,14 +125,14 @@ export default function Contact() {
                 Let's talk about everything!
               </h3>
               <p className="text-slate-700 dark:text-slate-200 leading-relaxed text-lg">
-                Have a project in mind or just want to say hi? Feel free to reach out. 
-                I'm always open to discussing new projects, creative ideas, or opportunities 
+                Have a project in mind or just want to say hi? Feel free to reach out.
+                I'm always open to discussing new projects, creative ideas, or opportunities
                 to be part of your visions.
               </p>
             </div>
 
             <div className="space-y-6">
-              <motion.div 
+              <motion.div
                 className="flex items-center space-x-4 group"
                 whileHover={{ scale: 1.05 }}
               >
@@ -147,7 +147,7 @@ export default function Contact() {
                 </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 className="flex items-center space-x-4 group"
                 whileHover={{ scale: 1.05 }}
               >
@@ -156,13 +156,13 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">Phone</p>
-                  <a href="tel:" className="text-lg text-slate-900 dark:text-slate-100 font-medium hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-400 hover:bg-clip-text transition-all">
-                    Available on request
+                  <a href="tel:+251952734066" className="text-lg text-slate-900 dark:text-slate-100 font-medium hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-400 hover:bg-clip-text transition-all">
+                    0952734066
                   </a>
                 </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 className="flex items-center space-x-4 group"
                 whileHover={{ scale: 1.05 }}
               >
@@ -194,11 +194,10 @@ export default function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-lg border ${
-                    errors.name 
-                      ? 'border-red-500 focus:border-red-500 focus:ring-red-500' 
-                      : 'border-gray-700 focus:ring-blue-500 focus:border-transparent'
-                  } bg-white dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-950 text-slate-900 dark:text-slate-100 transition-all focus:shadow-lg focus:shadow-blue-500/20`}
+                  className={`w-full px-4 py-3 rounded-lg border ${errors.name
+                    ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                    : 'border-gray-700 focus:ring-blue-500 focus:border-transparent'
+                    } bg-white dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-950 text-slate-900 dark:text-slate-100 transition-all focus:shadow-lg focus:shadow-blue-500/20`}
                   placeholder="Your Name"
                 />
                 {errors.name && (
@@ -219,11 +218,10 @@ export default function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-lg border ${
-                    errors.email 
-                      ? 'border-red-500 focus:border-red-500 focus:ring-red-500' 
-                      : 'border-gray-700 focus:ring-blue-500 focus:border-transparent'
-                  } bg-white dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-950 text-slate-900 dark:text-slate-100 transition-all focus:shadow-lg focus:shadow-blue-500/20`}
+                  className={`w-full px-4 py-3 rounded-lg border ${errors.email
+                    ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                    : 'border-gray-700 focus:ring-blue-500 focus:border-transparent'
+                    } bg-white dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-950 text-slate-900 dark:text-slate-100 transition-all focus:shadow-lg focus:shadow-blue-500/20`}
                   placeholder="your.email@example.com"
                 />
                 {errors.email && (
@@ -244,11 +242,10 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  className={`w-full px-4 py-3 rounded-lg border ${
-                    errors.message 
-                      ? 'border-red-500 focus:border-red-500 focus:ring-red-500' 
-                      : 'border-gray-700 focus:ring-blue-500 focus:border-transparent'
-                  } bg-gradient-to-br from-gray-900 to-black text-white transition-all focus:shadow-lg focus:shadow-blue-500/20 resize-none`}
+                  className={`w-full px-4 py-3 rounded-lg border ${errors.message
+                    ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                    : 'border-gray-700 focus:ring-blue-500 focus:border-transparent'
+                    } bg-gradient-to-br from-gray-900 to-black text-white transition-all focus:shadow-lg focus:shadow-blue-500/20 resize-none`}
                   placeholder="Your message..."
                 />
                 {errors.message && (
