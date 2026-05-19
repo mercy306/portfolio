@@ -10,7 +10,7 @@ const projects = [
     tags: ['React', 'Next.js', 'Tailwind CSS', 'MongoDB'],
     image: 'https://opengraph.githubassets.com/1/mercy306/counselconnect',
     github: 'https://github.com/mercy306/counselconnect',
-    live: null,
+    live: 'https://counselconnect-x11aj4dtf-mihirets-projects-e5f11159.vercel.app',
   },
   {
     title: 'School Management System',
@@ -26,7 +26,7 @@ const projects = [
     tags: ['React Native', 'JavaScript', 'Mobile'],
     image: 'https://opengraph.githubassets.com/1/mercy306/harar-cultural-guide',
     github: 'https://github.com/mercy306/harar-cultural-guide',
-    live: null,
+    live: 'https://harar-cultural-guide-k92c81770-mihirets-projects-e5f11159.vercel.app',
   },
 ];
 
@@ -123,7 +123,7 @@ export default function Projects() {
                 </div>
                 
                 {/* View project link */}
-                <div className="mt-4 pt-4 border-t border-gray-100 dark:border-slate-700">
+                <div className="mt-4 pt-4 border-t border-gray-100 dark:border-slate-700 flex items-center justify-between">
                   <a
                     href={project.github}
                     target="_blank"
@@ -133,6 +133,17 @@ export default function Projects() {
                     View Code
                     <Github className="w-4 h-4 ml-2" />
                   </a>
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-purple-600 dark:text-purple-400 font-medium hover:text-purple-700 dark:hover:text-purple-300 transition-all"
+                    >
+                      Live Demo
+                      <ExternalLink className="w-4 h-4 ml-2" />
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
