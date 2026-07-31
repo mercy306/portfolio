@@ -1,129 +1,193 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #1e293b;
-  --primary: #3b82f6;
-  --secondary: #0d9488;
-  --accent: #06b6d4;
+  --background: #0b0c10;
+  --foreground: #e2e8f0;
+  --card-bg: #12131c;
+  --card-border: #1f2233;
+  --primary-magenta: #DF058D;
+  --primary-blue: #2C49D8;
+  --primary-yellow: #FF6B2B;
+  --primary-violet: #9440E8;
+  --primary-cyan: #66D9ED;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), 'Roboto Mono', monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #477dfd;
-    --foreground: #f1f5f9;
-  }
-}
-
-/* Dark Mode */
-.dark {
-  --background: #0f172a;
-  --foreground: #f1f5f9;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
 }
 
-/* Ensure navbar stays on top */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-}
-
-/* Enhanced smooth scrolling */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-}
-
-/* Custom scrollbar - Enhanced */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #312f2f;
-  border-radius: 10px;
+  background: #08090d;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #3b82f6 0%, #06b6d4 100%);
-  border-radius: 10px;
+  background: #1e2235;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #2563eb 0%, #0891b2 100%);
+  background: #3b82f6;
 }
 
-/* Gradient text utility with subtle glow */
-.gradient-text {
-  background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Code Comment Font */
+.font-mono-code {
+  font-family: var(--font-mono);
+  letter-spacing: -0.5px;
 }
 
-/* Glass morphism effect */
-.glass {
-  background: rgba(40, 40, 40, 0.6);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+/* --- Chonky Underline Animations --- */
+.chonky-underline-magenta,
+.chonky-underline-blue,
+.chonky-underline-yellow,
+.chonky-underline-violet {
+  z-index: 0;
+  position: relative;
+  color: #ffffff;
+  display: inline-block;
 }
 
-
-
-
-
-/* Card hover effects - Enhanced */
-.card-hover {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+.chonky-underline-magenta::after,
+.chonky-underline-blue::after,
+.chonky-underline-yellow::after,
+.chonky-underline-violet::after {
+  transition: all 0.2s ease-in-out;
+  content: "";
+  position: absolute;
+  bottom: 12%;
+  z-index: -1;
+  height: 0.35em;
+  width: 104%;
+  left: -2%;
 }
 
-.card-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+.chonky-underline-magenta::after {
+  background: linear-gradient(65deg, #DF058D 0%, #DF058D 100%);
 }
 
-
-
-
-
-/* Input fields with glow on focus */
-input,
-textarea,
-select {
-  background-color: #1a1a1a;
-  border-color: #333;
-  color: #fff;
-  transition: all 0.3s ease;
+.chonky-underline-blue::after {
+  background: linear-gradient(65deg, #2C49D8 0%, #06b6d4 100%);
 }
 
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: #3b82f6;
-  outline: none;
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
-}
-/* Navbar with subtle glow border */
-nav {
-  background: rgba(40, 40, 40, 0.6);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(59, 130, 246, 0.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+.chonky-underline-yellow::after {
+  background: linear-gradient(65deg, #FF6B2B 0%, #f59e0b 100%);
 }
 
+.chonky-underline-violet::after {
+  background: linear-gradient(65deg, #9440E8 0%, #a855f7 100%);
+}
 
+/* Chonky underline hover effect */
+.chonky-underline-hover:hover::after {
+  height: 0.85em;
+}
+
+/* --- Code Editor Card Style --- */
+.code-editor-style {
+  position: relative;
+}
+
+.code-editor-style::before {
+  opacity: 0.25;
+  content: '';
+  width: 2px;
+  position: absolute;
+  top: 2rem;
+  bottom: 2rem;
+  left: 0;
+  background-color: #ffffff;
+}
+
+.code-editor-tag-start::before {
+  content: "<h3>";
+  display: block;
+  opacity: 0.35;
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.code-editor-tag-end::after {
+  content: "</h3>";
+  display: block;
+  opacity: 0.35;
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+/* --- Ambient Floating Glowing Orbs --- */
+.glowing-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glowing-orb-yellow {
+  background: radial-gradient(circle, rgba(255, 107, 43, 0.2) 0%, rgba(255, 209, 0, 0) 70%);
+}
+
+.glowing-orb-cyan {
+  background: radial-gradient(circle, rgba(102, 217, 237, 0.2) 0%, rgba(44, 73, 216, 0) 70%);
+}
+
+.glowing-orb-magenta {
+  background: radial-gradient(circle, rgba(223, 5, 141, 0.18) 0%, rgba(148, 64, 232, 0) 70%);
+}
+
+/* Side Track Indicator */
+.elements-bar {
+  position: fixed;
+  bottom: 2rem;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.elements-bar-left {
+  left: 1.5rem;
+}
+
+.elements-bar-right {
+  right: 1.5rem;
+}
+
+/* Glass Card */
+.tamal-card {
+  background-color: #11131f;
+  border: 1px solid #1c1f30;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tamal-card:hover {
+  border-color: rgba(102, 217, 237, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+}

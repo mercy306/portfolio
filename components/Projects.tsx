@@ -1,149 +1,205 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { useState } from 'react';
+import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 
 const projects = [
   {
+    id: 'counselconnect',
     title: 'Online Counselling Platform',
-    description: 'A web-based counseling system connecting clients with counselors, enabling secure registration, appointments, chat/video sessions, and payments. Built with React.js, Next.js, Tailwind CSS, and MongoDB.',
-    tags: ['React', 'Next.js', 'Tailwind CSS', 'MongoDB'],
+    category: 'web',
+    categoryLabel: 'Web Development',
+    description:
+      'A web-based counseling system connecting clients with counselors, enabling secure registration, appointment scheduling, chat/video sessions, and payments. Built with React.js, Next.js, Tailwind CSS, and MongoDB.',
+    tags: ['React.js', 'Next.js', 'Tailwind CSS', 'MongoDB'],
     image: 'https://opengraph.githubassets.com/1/mercy306/counselconnect',
     github: 'https://github.com/mercy306/counselconnect',
     live: 'https://counselconnect-x11aj4dtf-mihirets-projects-e5f11159.vercel.app',
+    featured: true,
   },
   {
+    id: 'school-mgmt',
     title: 'School Management System',
-    description: 'A comprehensive school management web application for handling student information, grades, attendance, and administrative tasks. Built with PHP, HTML, CSS, and MySQL.',
-    tags: ['PHP', 'HTML', 'CSS', 'MySQL'],
+    category: 'web',
+    categoryLabel: 'Web Development',
+    description:
+      'A comprehensive school management web application for handling student records, grades, attendance tracking, and administrative workflows using PHP, HTML, CSS, and MySQL.',
+    tags: ['PHP', 'HTML/CSS', 'MySQL', 'JavaScript'],
     image: 'https://opengraph.githubassets.com/1/mercy306/school-management',
     github: 'https://github.com/mercy306/school-management',
     live: null,
+    featured: false,
   },
   {
-    title: "Harar Cultural Guide",
-    description: 'A mobile app showcasing Harar\'s rich cultural heritage with audio functionality. Built with React Native to provide an immersive cultural experience.',
-    tags: ['React Native', 'JavaScript', 'Mobile'],
+    id: 'harar-guide',
+    title: 'Harar Cultural Guide',
+    category: 'mobile',
+    categoryLabel: 'Mobile App',
+    description:
+      "A cross-platform mobile app showcasing Harar's rich UNESCO cultural heritage with audio guides and interactive navigation, built with React Native.",
+    tags: ['React Native', 'JavaScript', 'Mobile UI'],
     image: 'https://opengraph.githubassets.com/1/mercy306/harar-cultural-guide',
     github: 'https://github.com/mercy306/harar-cultural-guide',
     live: 'https://harar-cultural-guide-k92c81770-mihirets-projects-e5f11159.vercel.app',
+    featured: false,
   },
 ];
 
 export default function Projects() {
-  return (
-    <section id="projects" className="py-20 relative overflow-hidden bg-slate-100 dark:bg-slate-950">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-100 via-slate-100 to-purple-100 dark:from-slate-900 dark:via-slate-950/10 dark:to-slate-950 -z-10"></div>
-      
-      {/* Decorative glow effects */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/8 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/8 rounded-full blur-3xl"></div>
-      
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">
-            Featured Projects
-          </h2>
-          <div className="w-20 h-1.5 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 mx-auto rounded-full shadow-lg shadow-purple-500/30"></div>
-        </motion.div>
+  const [activeFilter, setActiveFilter] = useState('all');
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+  const filteredProjects =
+    activeFilter === 'all'
+      ? projects
+      : projects.filter((p) => p.category === activeFilter);
+
+  return (
+    <section id="work" className="py-28 relative bg-[#0b0c10] overflow-hidden">
+      {/* Ambient background orb */}
+      <div className="glowing-orb glowing-orb-magenta w-[600px] h-[600px] top-1/4 right-0" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Top Header & Intro Grid */}
+        <div className="grid md:grid-cols-2 gap-8 items-end mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mb-4">
+              My <br />
+              <span className="text-[#66D9ED]">Work</span>
+            </h2>
+            <div className="w-16 h-1 bg-[#DF058D] rounded-full" />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-slate-300 font-mono-code text-sm leading-relaxed"
+          >
+            <p>
+              Architected and deployed full-stack web and mobile applications. Specializing in React, Next.js, React Native, and database integrations.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Category Filter Tabs (Isotope style) */}
+        <div className="flex items-center gap-4 mb-12 font-mono-code text-sm border-b border-[#181b2c] pb-4">
+          <span className="text-slate-500 text-xs uppercase tracking-wider">Filter by:</span>
+          <button
+            onClick={() => setActiveFilter('all')}
+            className={`transition-colors font-medium px-3 py-1 rounded ${
+              activeFilter === 'all'
+                ? 'text-[#66D9ED] bg-[#141624] border border-[#23273e]'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            All <span className="text-xs text-slate-500">({projects.length})</span>
+          </button>
+          <span className="text-slate-600">/</span>
+          <button
+            onClick={() => setActiveFilter('web')}
+            className={`transition-colors font-medium px-3 py-1 rounded ${
+              activeFilter === 'web'
+                ? 'text-[#66D9ED] bg-[#141624] border border-[#23273e]'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            Web Development
+          </button>
+          <span className="text-slate-600">/</span>
+          <button
+            onClick={() => setActiveFilter('mobile')}
+            className={`transition-colors font-medium px-3 py-1 rounded ${
+              activeFilter === 'mobile'
+                ? 'text-[#66D9ED] bg-[#141624] border border-[#23273e]'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            Mobile Apps
+          </button>
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, idx) => (
             <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 20 }}
+              key={project.id}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className="group bg-white dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-950 rounded-xl overflow-hidden shadow-lg border border-slate-300 dark:border-slate-700 hover:border-blue-500/50 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/20"
+              className={`tamal-card rounded-xl overflow-hidden group flex flex-col justify-between ${
+                project.featured ? 'md:col-span-2 lg:col-span-2' : ''
+              }`}
             >
-              <div className="relative overflow-hidden">
+              {/* Image Preview with Hover Zoom & Color Overlay */}
+              <div className="relative h-60 sm:h-72 overflow-hidden bg-[#161826]">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                 />
-                
-                {/* Gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                {/* Social links overlay */}
-                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full hover:shadow-lg hover:shadow-blue-500/50 transition-all transform hover:scale-110"
-                  >
-                    <Github className="w-5 h-5 text-white" />
-                  </a>
-                  {project.live && (
+                {/* Gradient color overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0b0c10] via-[#0b0c10]/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+
+                {/* Show Project Drawer Tag */}
+                <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                  <span className="px-3 py-1 rounded bg-[#10121d]/90 border border-[#23273e] text-[#66D9ED] font-mono-code text-xs">
+                    {project.categoryLabel}
+                  </span>
+                  <div className="flex gap-2">
                     <a
-                      href={project.live}
+                      href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full hover:shadow-lg hover:shadow-purple-500/50 transition-all transform hover:scale-110"
+                      className="p-2.5 rounded-full bg-[#161826]/90 border border-[#23273e] text-white hover:text-[#66D9ED] hover:border-[#66D9ED] transition-all"
+                      aria-label="GitHub Code"
                     >
-                      <ExternalLink className="w-5 h-5 text-white" />
+                      <Github className="w-4 h-4" />
                     </a>
-                  )}
-                </div>
-                
-                {/* Project type badge */}
-                <div className="absolute top-3 right-3 px-3 py-1 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-xs font-semibold rounded-full shadow-lg shadow-blue-500/30">
-                  Project
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2.5 rounded-full bg-[#2C49D8] text-white hover:bg-[#3856ed] transition-all"
+                        aria-label="Live Demo"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
 
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 group-hover:bg-clip-text transition-all">
-                  {project.title}
-                </h3>
-                <p className="text-slate-700 dark:text-slate-200 mb-4 line-clamp-3 leading-relaxed">
-                  {project.description}
-                </p>
-                
-                {/* Tags with enhanced styling */}
-                <div className="flex flex-wrap gap-2">
+              {/* Details Content */}
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#66D9ED] transition-colors flex items-center gap-2">
+                    <span>{project.title}</span>
+                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-[#66D9ED]" />
+                  </h3>
+                  <p className="text-slate-400 text-sm leading-relaxed mb-6 font-sans">
+                    {project.description}
+                  </p>
+                </div>
+
+                {/* Tech Tags */}
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-[#181b2c]">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1.5 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/50 dark:to-cyan-900/50 text-blue-800 dark:text-blue-200 rounded-lg text-sm font-medium border border-blue-300 dark:border-blue-700 hover:border-blue-500 transition-colors cursor-default"
+                      className="px-2.5 py-1 rounded bg-[#161826] border border-[#23273e] text-slate-300 font-mono-code text-xs"
                     >
                       {tag}
                     </span>
                   ))}
-                </div>
-                
-                {/* View project link */}
-                <div className="mt-4 pt-4 border-t border-gray-100 dark:border-slate-700 flex items-center justify-between">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-all"
-                  >
-                    View Code
-                    <Github className="w-4 h-4 ml-2" />
-                  </a>
-                  {project.live && (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-purple-600 dark:text-purple-400 font-medium hover:text-purple-700 dark:hover:text-purple-300 transition-all"
-                    >
-                      Live Demo
-                      <ExternalLink className="w-4 h-4 ml-2" />
-                    </a>
-                  )}
                 </div>
               </div>
             </motion.div>

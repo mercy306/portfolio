@@ -1,98 +1,149 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Code, Sparkles, Terminal } from 'lucide-react';
 
 export default function Hero() {
+  const techBadges = [
+    'React.js',
+    'Next.js',
+    'TypeScript',
+    'JavaScript',
+    'Node.js',
+    'PHP',
+    'MongoDB',
+    'MySQL',
+    'React Native',
+    'Tailwind CSS',
+  ];
+
   return (
-    <section className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden bg-slate-50 dark:bg-slate-800">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-slate-50 to-cyan-50 dark:from-slate-700 dark:via-slate-800 dark:to-cyan-800/30 -z-10"></div>
-      
-      {/* Animated background orbs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/15 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-      
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+    <section
+      id="hero-section"
+      className="min-h-screen flex flex-col justify-center items-center relative pt-28 pb-16 overflow-hidden bg-[#0b0c10]"
+    >
+      {/* Background Ambient Orbs inspired by tamalsen.dev */}
+      <div className="glowing-orb glowing-orb-yellow w-[500px] h-[500px] -top-20 -left-20 animate-pulse" />
+      <div className="glowing-orb glowing-orb-cyan w-[600px] h-[600px] top-1/3 -right-20 animate-pulse" style={{ animationDelay: '1.5s' }} />
+      <div className="glowing-orb glowing-orb-magenta w-[450px] h-[450px] -bottom-20 left-1/4 animate-pulse" style={{ animationDelay: '3s' }} />
+
+      {/* Grid Pattern Overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(#1f2233_1px,transparent_1px)] [background-size:32px_32px] opacity-25 pointer-events-none" />
+
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 my-auto">
+        {/* Terminal Header Tag */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#131522] border border-[#23273e] text-[#66D9ED] font-mono-code text-xs sm:text-sm mb-8 shadow-inner"
+        >
+          <Terminal className="w-4 h-4 text-[#DF058D]" />
+          <span>hello_world.tsx</span>
+          <span className="w-2 h-2 rounded-full bg-[#66D9ED] animate-ping" />
+        </motion.div>
+
+        {/* Big Name Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tight text-white mb-6"
+        >
+          Mihiret Tsegaye
+        </motion.h1>
+
+        {/* Sub-headline with Chonky Underline Highlight */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-8"
         >
-          <motion.h1
-            className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-slate-700 dark:text-slate-200"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            Hi, I'm{' '}
-            <span className="block mt-2 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-              Mihiret Tsegaye Legesse
-            </span>
-          </motion.h1>
-
-          <motion.p
-            className="text-xl md:text-2xl text-slate-700 dark:text-slate-200 mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            Full Stack Developer & Problem Solver
-          </motion.p>
-
-          <motion.p
-            className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-12 leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            I build exceptional digital experiences that combine elegant code with 
-            beautiful design. Let's turn your ideas into reality.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex justify-center gap-4 flex-wrap"
-          >
-            <motion.a
-              href="#projects"
-              className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-blue-500/30 transition-all transform hover:-translate-y-1 shadow-lg shadow-blue-500/30"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View My Work
-              <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
-            </motion.a>
-            <motion.a
-              href="#contact"
-              className="px-8 py-4 border-2 border-slate-600 dark:border-slate-500 bg-slate-800 dark:bg-slate-700 text-white rounded-lg font-medium hover:border-blue-500 dark:hover:border-blue-500 hover:bg-slate-700 dark:hover:bg-slate-600 transition-all transform hover:-translate-y-1"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Contact Me
-            </motion.a>
-          </motion.div>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-slate-300 max-w-3xl mx-auto leading-snug">
+            Full Stack Developer,{' '}
+            <span className="chonky-underline-magenta chonky-underline-hover font-semibold">
+              Front-end
+            </span>{' '}
+            &{' '}
+            <span className="chonky-underline-blue chonky-underline-hover font-semibold">
+              Mobile Specialist
+            </span>.
+          </h2>
         </motion.div>
 
+        {/* Short Bio Paragraph */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed font-normal"
+        >
+          Computer Science graduate from Haramaya University & former Front-end Developer Intern at the Ethiopian Road Administration. Devoted to building web & mobile experiences with React, Next.js, and modern tech.
+        </motion.p>
+
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex flex-wrap justify-center items-center gap-4 mb-16"
+        >
+          <a
+            href="#work"
+            className="px-8 py-3.5 rounded-lg bg-[#2C49D8] text-white font-mono-code font-semibold text-sm hover:bg-[#3856ed] transition-all transform hover:-translate-y-0.5 shadow-lg shadow-[#2C49D8]/30 flex items-center gap-2"
+          >
+            <Code className="w-4 h-4" />
+            <span>// view_work</span>
+          </a>
+          <a
+            href="#contact"
+            className="px-8 py-3.5 rounded-lg bg-[#141624] border border-[#2b304c] text-slate-200 font-mono-code font-semibold text-sm hover:border-[#66D9ED] hover:text-[#66D9ED] transition-all transform hover:-translate-y-0.5"
+          >
+            <span>// contact_me</span>
+          </a>
+        </motion.div>
+
+        {/* Tech Stack Marquee / Badges ("As featured in" style) */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="pt-8 border-t border-[#181b2c] max-w-4xl mx-auto"
         >
-          <motion.a
-            href="#about"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="inline-block p-3 rounded-full bg-slate-200/50 dark:bg-slate-800/50 backdrop-blur-sm hover:bg-slate-300/50 dark:hover:bg-slate-700/50 transition-all"
-          >
-            <ArrowDown className="w-6 h-6 text-slate-600 dark:text-slate-400" />
-          </motion.a>
+          <div className="flex items-center justify-center gap-2 text-xs font-mono-code text-slate-500 uppercase tracking-widest mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-[#FF6B2B]" />
+            <span>Technologies & Skills</span>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+            {techBadges.map((badge) => (
+              <span
+                key={badge}
+                className="px-3.5 py-1.5 rounded-md bg-[#121422] border border-[#1e2238] text-slate-300 text-xs sm:text-sm font-mono-code hover:border-[#66D9ED]/50 transition-colors"
+              >
+                {badge}
+              </span>
+            ))}
+          </div>
         </motion.div>
       </div>
+
+      {/* Downward Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8, duration: 1 }}
+        className="mt-8 z-10"
+      >
+        <a
+          href="#expertise"
+          aria-label="Scroll to expertise"
+          className="p-3 rounded-full bg-[#121422] border border-[#22263d] text-slate-400 hover:text-[#66D9ED] hover:border-[#66D9ED] transition-all flex items-center justify-center group animate-bounce"
+        >
+          <ArrowDown className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
+        </a>
+      </motion.div>
     </section>
   );
 }
