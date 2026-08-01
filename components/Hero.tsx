@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowDown, Code, Sparkles, Terminal } from 'lucide-react';
+import { Code, Sparkles, Terminal } from 'lucide-react';
 
 export default function Hero() {
   const techBadges = [
@@ -129,21 +129,34 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Downward Scroll Indicator */}
+      {/* Animated Capsule Scroll Indicator — tamalsen.dev style */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.8, duration: 1 }}
-        className="mt-8 z-10"
+        transition={{ delay: 0.9, duration: 1 }}
+        className="mt-10 z-10"
       >
         <a
           href="#expertise"
           aria-label="Scroll to expertise"
-          className="p-3 rounded-full bg-[#2c2f36] border border-[#3a3d47] text-slate-400 hover:text-[#66D9ED] hover:border-[#66D9ED] transition-all flex items-center justify-center group animate-bounce"
+          className="flex flex-col items-center gap-2 group"
         >
-          <ArrowDown className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
+          {/* Pill / Capsule Shape */}
+          <div className="w-8 h-14 rounded-full border-2 border-slate-400 group-hover:border-[#66D9ED] transition-colors flex items-start justify-center pt-2">
+            {/* Bouncing dot inside capsule */}
+            <motion.div
+              className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-[#66D9ED] transition-colors"
+              animate={{ y: [0, 22, 0] }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
+          </div>
         </a>
       </motion.div>
     </section>
   );
 }
+
