@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Code, Sparkles, Terminal } from 'lucide-react';
+import { Code, Sparkles } from 'lucide-react';
 
 export default function Hero() {
   const techBadges = [
@@ -31,17 +31,6 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(#2e3138_1px,transparent_1px)] [background-size:32px_32px] opacity-30 pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 my-auto">
-        {/* Terminal Header Tag */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1e2026] border border-[#3a3d47] text-[#66D9ED] font-mono-code text-xs sm:text-sm mb-8 shadow-inner"
-        >
-          <Terminal className="w-4 h-4 text-[#DF058D]" />
-          <span>hello_world.tsx</span>
-          <span className="w-2 h-2 rounded-full bg-[#66D9ED] animate-ping" />
-        </motion.div>
 
         {/* Big Name Headline */}
         <motion.h1
