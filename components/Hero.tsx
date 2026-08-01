@@ -20,7 +20,7 @@ export default function Hero() {
   return (
     <section
       id="hero-section"
-      className="min-h-screen flex flex-col justify-center items-center relative pt-28 pb-16 overflow-hidden bg-[#0b0c10]"
+      className="min-h-screen flex flex-col justify-center items-center relative pt-28 pb-16 overflow-hidden bg-[#24262B]"
     >
       {/* Background Ambient Orbs inspired by tamalsen.dev */}
       <div className="glowing-orb glowing-orb-yellow w-[500px] h-[500px] -top-20 -left-20 animate-pulse" />
@@ -28,7 +28,7 @@ export default function Hero() {
       <div className="glowing-orb glowing-orb-magenta w-[450px] h-[450px] -bottom-20 left-1/4 animate-pulse" style={{ animationDelay: '3s' }} />
 
       {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(#1f2233_1px,transparent_1px)] [background-size:32px_32px] opacity-25 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#2e3138_1px,transparent_1px)] [background-size:32px_32px] opacity-30 pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 my-auto">
         {/* Terminal Header Tag */}
@@ -36,7 +36,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#131522] border border-[#23273e] text-[#66D9ED] font-mono-code text-xs sm:text-sm mb-8 shadow-inner"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1e2026] border border-[#3a3d47] text-[#66D9ED] font-mono-code text-xs sm:text-sm mb-8 shadow-inner"
         >
           <Terminal className="w-4 h-4 text-[#DF058D]" />
           <span>hello_world.tsx</span>
@@ -98,7 +98,7 @@ export default function Hero() {
           </a>
           <a
             href="#contact"
-            className="px-8 py-3.5 rounded-lg bg-[#141624] border border-[#2b304c] text-slate-200 font-mono-code font-semibold text-sm hover:border-[#66D9ED] hover:text-[#66D9ED] transition-all transform hover:-translate-y-0.5"
+            className="px-8 py-3.5 rounded-lg bg-[#2c2f36] border border-[#3a3d47] text-slate-200 font-mono-code font-semibold text-sm hover:border-[#66D9ED] hover:text-[#66D9ED] transition-all transform hover:-translate-y-0.5"
           >
             <span>// contact_me</span>
           </a>
@@ -109,7 +109,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="pt-8 border-t border-[#181b2c] max-w-4xl mx-auto"
+          className="pt-8 border-t border-[#3a3d47] max-w-4xl mx-auto"
         >
           <div className="flex items-center justify-center gap-2 text-xs font-mono-code text-slate-500 uppercase tracking-widest mb-4">
             <Sparkles className="w-3.5 h-3.5 text-[#FF6B2B]" />
@@ -120,7 +120,7 @@ export default function Hero() {
             {techBadges.map((badge) => (
               <span
                 key={badge}
-                className="px-3.5 py-1.5 rounded-md bg-[#121422] border border-[#1e2238] text-slate-300 text-xs sm:text-sm font-mono-code hover:border-[#66D9ED]/50 transition-colors"
+                className="px-3.5 py-1.5 rounded-md bg-[#2c2f36] border border-[#3a3d47] text-slate-300 text-xs sm:text-sm font-mono-code hover:border-[#66D9ED]/50 transition-colors"
               >
                 {badge}
               </span>
@@ -139,7 +139,7 @@ export default function Hero() {
         <a
           href="#expertise"
           aria-label="Scroll to expertise"
-          className="p-3 rounded-full bg-[#121422] border border-[#22263d] text-slate-400 hover:text-[#66D9ED] hover:border-[#66D9ED] transition-all flex items-center justify-center group animate-bounce"
+          className="p-3 rounded-full bg-[#2c2f36] border border-[#3a3d47] text-slate-400 hover:text-[#66D9ED] hover:border-[#66D9ED] transition-all flex items-center justify-center group animate-bounce"
         >
           <ArrowDown className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
         </a>

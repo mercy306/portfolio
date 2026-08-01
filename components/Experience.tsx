@@ -51,7 +51,7 @@ export default function Experience() {
   };
 
   return (
-    <section id="experience" className="py-28 relative bg-[#0b0c10] overflow-hidden">
+    <section id="experience" className="py-28 relative bg-[#24262B] overflow-hidden">
       {/* Background glow orb */}
       <div className="glowing-orb glowing-orb-yellow w-[500px] h-[500px] bottom-0 left-0" />
 
@@ -89,7 +89,7 @@ export default function Experience() {
                 {/* Header Title Row */}
                 <button
                   onClick={() => toggleAccordion(index)}
-                  className="w-full p-6 text-left flex items-center justify-between gap-4 bg-[#111320] hover:bg-[#161828] transition-colors cursor-pointer"
+                  className="w-full p-6 text-left flex items-center justify-between gap-4 bg-[#2c2f36] hover:bg-[#32353C] transition-colors cursor-pointer"
                 >
                   <div className="flex items-center gap-4 flex-1">
                     <div className="p-3 rounded-lg bg-[#181a2b] border border-[#262940] text-[#66D9ED]">

@@ -48,7 +48,7 @@ export default function Skills() {
   ];
 
   return (
-    <section id="expertise" className="py-28 relative bg-[#0b0c10] overflow-hidden">
+    <section id="expertise" className="py-28 relative bg-[#24262B] overflow-hidden">
       {/* Background glow */}
       <div className="glowing-orb glowing-orb-cyan w-[500px] h-[500px] top-10 left-1/2 -translate-x-1/2" />
 
@@ -113,7 +113,7 @@ export default function Skills() {
                   {card.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-2.5 py-1 rounded bg-[#161826] border border-[#23273e] text-slate-400 font-mono-code text-[11px] hover:text-[#66D9ED] transition-colors"
+                      className="px-2.5 py-1 rounded bg-[#32353C] border border-[#3a3d47] text-slate-400 font-mono-code text-[11px] hover:text-[#66D9ED] transition-colors"
                     >
                       {skill}
                     </span>

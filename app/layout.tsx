@@ -1,26 +1,38 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { ThemeProvider } from "next-themes";
+import { Poppins, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const robotoMono = Roboto_Mono({
+  variable: "--font-roboto-mono",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Mihiret Tsegaye Legesse - Full Stack Developer",
-  description: "Junior IT Professional & Front-end Developer specializing in React, Next.js, and modern web technologies. Based in Addis Ababa, Ethiopia.",
-  keywords: ["Mihiret Tsegaye", "Full Stack Developer", "Front-end Developer", "React Developer", "Next.js", "Ethiopia"],
+  description:
+    "Junior IT Professional & Front-end Developer specializing in React, Next.js, and modern web technologies. Based in Addis Ababa, Ethiopia.",
+  keywords: [
+    "Mihiret Tsegaye",
+    "Full Stack Developer",
+    "Front-end Developer",
+    "React Developer",
+    "Next.js",
+    "Ethiopia",
+  ],
   authors: [{ name: "Mihiret Tsegaye Legesse" }],
   openGraph: {
     title: "Mihiret Tsegaye Legesse - Full Stack Developer",
-    description: "Junior IT Professional & Front-end Developer specializing in React, Next.js, and modern web technologies.",
+    description:
+      "Junior IT Professional & Front-end Developer specializing in React, Next.js, and modern web technologies.",
     type: "website",
   },
 };
@@ -32,12 +44,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
-        </ThemeProvider>
+      <body className={`${poppins.variable} ${robotoMono.variable} antialiased`}>
+        {children}
       </body>
     </html>
   );

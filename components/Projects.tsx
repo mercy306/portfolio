@@ -55,7 +55,7 @@ export default function Projects() {
       : projects.filter((p) => p.category === activeFilter);
 
   return (
-    <section id="work" className="py-28 relative bg-[#0b0c10] overflow-hidden">
+    <section id="work" className="py-28 relative bg-[#32353C] overflow-hidden">
       {/* Ambient background orb */}
       <div className="glowing-orb glowing-orb-magenta w-[600px] h-[600px] top-1/4 right-0" />
 
@@ -95,7 +95,7 @@ export default function Projects() {
             onClick={() => setActiveFilter('all')}
             className={`transition-colors font-medium px-3 py-1 rounded ${
               activeFilter === 'all'
-                ? 'text-[#66D9ED] bg-[#141624] border border-[#23273e]'
+                ? 'text-[#66D9ED] bg-[#24262B] border border-[#3a3d47]'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
@@ -106,7 +106,7 @@ export default function Projects() {
             onClick={() => setActiveFilter('web')}
             className={`transition-colors font-medium px-3 py-1 rounded ${
               activeFilter === 'web'
-                ? 'text-[#66D9ED] bg-[#141624] border border-[#23273e]'
+                ? 'text-[#66D9ED] bg-[#24262B] border border-[#3a3d47]'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
@@ -117,7 +117,7 @@ export default function Projects() {
             onClick={() => setActiveFilter('mobile')}
             className={`transition-colors font-medium px-3 py-1 rounded ${
               activeFilter === 'mobile'
-                ? 'text-[#66D9ED] bg-[#141624] border border-[#23273e]'
+                ? 'text-[#66D9ED] bg-[#24262B] border border-[#3a3d47]'
                 : 'text-slate-400 hover:text-white'
             }`}
           >

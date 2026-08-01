@@ -78,7 +78,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-28 relative bg-[#0b0c10] overflow-hidden">
+    <section id="contact" className="py-28 relative bg-[#32353C] overflow-hidden">
       {/* Background Orbs */}
       <div className="glowing-orb glowing-orb-magenta w-[600px] h-[600px] top-0 left-0" />
       <div className="glowing-orb glowing-orb-cyan w-[500px] h-[500px] bottom-0 right-0" />
@@ -202,8 +202,8 @@ export default function Contact() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-lg bg-[#0b0c10] border ${
-                      errors.name ? 'border-red-500' : 'border-[#23273e]'
+                    className={`w-full px-4 py-3 rounded-lg bg-[#24262B] border ${
+                      errors.name ? 'border-red-500' : 'border-[#3a3d47]'
                     } text-white font-mono-code text-sm focus:border-[#66D9ED] focus:outline-none transition-colors`}
                     placeholder="Jane Doe"
                   />
@@ -225,8 +225,8 @@ export default function Contact() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-lg bg-[#0b0c10] border ${
-                      errors.email ? 'border-red-500' : 'border-[#23273e]'
+                    className={`w-full px-4 py-3 rounded-lg bg-[#24262B] border ${
+                      errors.email ? 'border-red-500' : 'border-[#3a3d47]'
                     } text-white font-mono-code text-sm focus:border-[#66D9ED] focus:outline-none transition-colors`}
                     placeholder="jane@example.com"
                   />
@@ -248,8 +248,8 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
-                    className={`w-full px-4 py-3 rounded-lg bg-[#0b0c10] border ${
-                      errors.message ? 'border-red-500' : 'border-[#23273e]'
+                    className={`w-full px-4 py-3 rounded-lg bg-[#24262B] border ${
+                      errors.message ? 'border-red-500' : 'border-[#3a3d47]'
                     } text-white font-mono-code text-sm focus:border-[#66D9ED] focus:outline-none transition-colors resize-none`}
                     placeholder="Write your project details or message..."
                   />
