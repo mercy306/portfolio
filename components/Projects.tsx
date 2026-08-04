@@ -15,7 +15,7 @@ const projects = [
     tags: ['React.js', 'Next.js', 'Node.js', 'MongoDB', 'Tailwind CSS'],
     image: 'https://opengraph.githubassets.com/1/mercy306/counselconnect',
     github: 'https://github.com/mercy306/counselconnect',
-    live: 'https://counselconnect-three.vercel.app',
+    live: 'https://counselconnect-x11aj4dtf-mihirets-projects-e5f11159.vercel.app',
     featured: true,
   },
   {
@@ -28,7 +28,7 @@ const projects = [
     tags: ['React Native', 'JavaScript', 'Audio Player', 'Mobile UI'],
     image: 'https://opengraph.githubassets.com/1/mercy306/harar-cultural-guide',
     github: 'https://github.com/mercy306/harar-cultural-guide',
-    live: 'https://harar-cultural-guide.vercel.app',
+    live: 'https://harar-cultural-guide-k92c81770-mihirets-projects-e5f11159.vercel.app',
     featured: false,
   },
   {
@@ -41,7 +41,7 @@ const projects = [
     tags: ['Kotlin', 'Android SDK', 'Game Dev', 'Mobile UI'],
     image: 'https://opengraph.githubassets.com/1/mercy306/FaithJourney',
     github: 'https://github.com/mercy306/FaithJourney',
-    live: 'https://faith-journey-omega.vercel.app',
+    live: null,
     featured: false,
   },
   {
@@ -67,7 +67,7 @@ const projects = [
     tags: ['PHP', 'MySQL', 'HTML/CSS', 'JavaScript'],
     image: 'https://opengraph.githubassets.com/1/mercy306/school-management',
     github: 'https://github.com/mercy306/school-management',
-    live: 'https://school-management-rust-xi.vercel.app',
+    live: null,
     featured: false,
   },
 ];
