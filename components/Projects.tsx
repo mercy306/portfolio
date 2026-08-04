@@ -67,7 +67,7 @@ const projects = [
     tags: ['PHP', 'MySQL', 'HTML/CSS', 'JavaScript'],
     image: 'https://opengraph.githubassets.com/1/mercy306/school-management',
     github: 'https://github.com/mercy306/school-management',
-    live: 'https://school-management-indol-tau.vercel.app',
+    live: null,
     featured: false,
   },
 ];
