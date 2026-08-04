@@ -62,18 +62,13 @@ export default function Contact() {
 
   const testimonials = [
     {
-      author: 'Academic Advisor',
-      role: 'Department of Computer Science',
+      author: 'Tadesse Kebede (MSc)',
+      role: 'Head Registrar, College of Computing and Informatics',
       company: 'Haramaya University',
+      email: 'taddeekb@gmail.com',
+      phone: '+251 917 137 3609',
       quote:
-        'Mihiret demonstrated exceptional technical problem-solving skills and leadership throughout her capstone full-stack project, producing top-tier clean code.',
-    },
-    {
-      author: 'IT Lead',
-      role: 'Software Division',
-      company: 'Ethiopian Road Administration',
-      quote:
-        'Highly responsive, organized, and proactive during her software internship. Delivered great front-end UI implementations connected to SQL backends.',
+        'Miss Mihiret Tsegaye Legesse is highly recommended based on her outstanding academic performance, strong analytical and technical skills, dedication, and excellent work ethic. Throughout her studies at Haramaya University, she consistently demonstrated intelligence, motivation, professionalism, and the ability to complete projects successfully. With her solid academic background and commitment to continuous learning, she is well qualified for employment or admission to further studies. I confidently recommend her without reservation.',
     },
   ];
 
@@ -159,15 +154,31 @@ export default function Contact() {
               {testimonials.map((t, idx) => (
                 <div
                   key={idx}
-                  className="tamal-card p-5 rounded-xl border border-[#1f2233] relative"
+                  className="tamal-card p-5 sm:p-6 rounded-xl border border-[#1f2233] relative"
                 >
                   <Quote className="w-6 h-6 text-[#DF058D]/40 mb-2" />
-                  <p className="text-slate-300 text-xs italic leading-relaxed mb-3">
+                  <p className="text-slate-200 text-xs sm:text-sm italic leading-relaxed mb-4">
                     "{t.quote}"
                   </p>
-                  <div className="font-mono-code text-xs">
-                    <span className="text-white font-bold">{t.author}</span>
-                    <span className="text-slate-400"> - {t.role}, {t.company}</span>
+                  <div className="font-mono-code text-xs space-y-1">
+                    <div>
+                      <span className="text-white font-bold">{t.author}</span>
+                      <span className="text-slate-400"> — {t.role}, {t.company}</span>
+                    </div>
+                    {(t.email || t.phone) && (
+                      <div className="text-slate-400 text-[11px] pt-1 flex flex-wrap gap-x-4 gap-y-1">
+                        {t.email && (
+                          <span>
+                            <span className="text-[#66D9ED]">Email:</span> {t.email}
+                          </span>
+                        )}
+                        {t.phone && (
+                          <span>
+                            <span className="text-[#66D9ED]">Phone:</span> {t.phone}
+                          </span>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}

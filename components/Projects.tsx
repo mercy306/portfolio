@@ -6,6 +6,19 @@ import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 
 const projects = [
   {
+    id: 'faith-journey',
+    title: 'FaithJourney Game',
+    category: 'game',
+    categoryLabel: 'Interactive Game',
+    description:
+      'An engaging interactive game application designed to provide an uplifting journey with immersive gameplay mechanics, interactive levels, and intuitive user interface.',
+    tags: ['JavaScript', 'Game Dev', 'HTML5/CSS3', 'Interactive UI'],
+    image: 'https://opengraph.githubassets.com/1/mercy306/FaithJourney',
+    github: 'https://github.com/mercy306/FaithJourney',
+    live: null,
+    featured: true,
+  },
+  {
     id: 'counselconnect',
     title: 'Online Counselling Platform',
     category: 'web',
@@ -16,7 +29,7 @@ const projects = [
     image: 'https://opengraph.githubassets.com/1/mercy306/counselconnect',
     github: 'https://github.com/mercy306/counselconnect',
     live: 'https://counselconnect-x11aj4dtf-mihirets-projects-e5f11159.vercel.app',
-    featured: true,
+    featured: false,
   },
   {
     id: 'school-mgmt',
@@ -111,6 +124,17 @@ export default function Projects() {
             }`}
           >
             Web Development
+          </button>
+          <span className="text-slate-600">/</span>
+          <button
+            onClick={() => setActiveFilter('game')}
+            className={`transition-colors font-medium px-3 py-1 rounded ${
+              activeFilter === 'game'
+                ? 'text-[#66D9ED] bg-[#24262B] border border-[#3a3d47]'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            Games
           </button>
           <span className="text-slate-600">/</span>
           <button

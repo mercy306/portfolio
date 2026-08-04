@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  /* tamalsen.dev exact background colors */
-  --background: #24262B;
-  --background-light: #32353C;
-  --background-dark: #1a1a1a;
-  --foreground: #e2e8f0;
-  --card-bg: #2c2f36;
-  --card-border: #3a3d47;
+  /* Rich Deep Obsidian Midnight theme */
+  --background: #090a0f;
+  --background-light: #12141f;
+  --background-dark: #050608;
+  --foreground: #f1f5f9;
+  --card-bg: #121524;
+  --card-border: #20253d;
 
-  /* Brand & Accent Colors (exact from tamalsen.dev) */
+  /* Brand & Accent Colors */
   --brand-cyan: #66D9ED;
   --primary-magenta: #DF058D;
   --primary-blue: #2C49D8;
@@ -45,11 +45,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #050608;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3a3d47;
+  background: #20253d;
   border-radius: 4px;
 }
 
@@ -63,7 +63,7 @@ body {
   letter-spacing: -0.5px;
 }
 
-/* --- Chonky Underline Animations (exact from tamalsen.dev) --- */
+/* --- Chonky Underline Animations --- */
 .chonky-underline-magenta,
 .chonky-underline-blue,
 .chonky-underline-yellow,
@@ -78,35 +78,35 @@ body {
 .chonky-underline-blue::after,
 .chonky-underline-yellow::after,
 .chonky-underline-violet::after {
-  transition: all 0.1s ease-in-out;
+  transition: all 0.15s ease-in-out;
   content: "";
   position: absolute;
   bottom: 13.5%;
   z-index: -1;
-  height: 0.3em;
+  height: 0.35em;
   width: 104%;
   left: -1%;
 }
 
 .chonky-underline-magenta::after {
-  background: linear-gradient(65deg, #DF058D 0%, #DF058D 100%, rgba(255,209,0,0) 100%);
+  background: linear-gradient(65deg, #DF058D 0%, #DF058D 100%);
 }
 
 .chonky-underline-blue::after {
-  background: linear-gradient(65deg, #2C49D8 0%, #2C49D8 100%, rgba(255,209,0,0) 100%);
+  background: linear-gradient(65deg, #2C49D8 0%, #2C49D8 100%);
 }
 
 .chonky-underline-yellow::after {
-  background: linear-gradient(65deg, #FF6B2B 0%, #FF6B2B 100%, rgba(255,209,0,0) 100%);
+  background: linear-gradient(65deg, #FF6B2B 0%, #FF6B2B 100%);
 }
 
 .chonky-underline-violet::after {
-  background: linear-gradient(65deg, #9440e8 0%, #9440e8 100%, rgba(255,209,0,0) 100%);
+  background: linear-gradient(65deg, #9440e8 0%, #9440e8 100%);
 }
 
-/* Hover expand effect (tamalsen.dev style) */
+/* Hover expand effect */
 .chonky-underline-hover:hover::after {
-  height: 1em;
+  height: 0.95em;
 }
 
 /* --- Code Editor Card Style --- */
@@ -115,7 +115,7 @@ body {
 }
 
 .code-editor-style::before {
-  opacity: 0.3;
+  opacity: 0.35;
   content: '';
   width: 2px;
   position: absolute;
@@ -128,7 +128,7 @@ body {
 .code-editor-tag-start::before {
   content: "<h3>";
   display: block;
-  opacity: 0.3;
+  opacity: 0.35;
   color: #ffffff;
   font-family: var(--font-mono);
   font-size: 0.8rem;
@@ -138,7 +138,7 @@ body {
 .code-editor-tag-end::after {
   content: "</h3>";
   display: block;
-  opacity: 0.3;
+  opacity: 0.35;
   color: #ffffff;
   font-family: var(--font-mono);
   font-size: 0.8rem;
@@ -149,34 +149,34 @@ body {
 .glowing-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
+  filter: blur(90px);
   pointer-events: none;
   z-index: 0;
 }
 
 .glowing-orb-yellow {
-  background: radial-gradient(circle, rgba(255, 107, 43, 0.18) 0%, rgba(255, 209, 0, 0) 70%);
+  background: radial-gradient(circle, rgba(255, 107, 43, 0.22) 0%, rgba(255, 209, 0, 0) 70%);
 }
 
 .glowing-orb-cyan {
-  background: radial-gradient(circle, rgba(102, 217, 237, 0.18) 0%, rgba(44, 73, 216, 0) 70%);
+  background: radial-gradient(circle, rgba(102, 217, 237, 0.22) 0%, rgba(44, 73, 216, 0) 70%);
 }
 
 .glowing-orb-magenta {
-  background: radial-gradient(circle, rgba(223, 5, 141, 0.15) 0%, rgba(148, 64, 232, 0) 70%);
+  background: radial-gradient(circle, rgba(223, 5, 141, 0.2) 0%, rgba(148, 64, 232, 0) 70%);
 }
 
 /* tamal-card using site background colors */
 .tamal-card {
-  background-color: #2c2f36;
-  border: 1px solid #3a3d47;
+  background-color: #121524;
+  border: 1px solid #20253d;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tamal-card:hover {
-  border-color: rgba(102, 217, 237, 0.4);
+  border-color: rgba(102, 217, 237, 0.5);
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 16px 35px -10px rgba(0, 0, 0, 0.7);
 }
 
 /* Brand color utilities */
