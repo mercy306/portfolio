@@ -67,7 +67,7 @@ const projects = [
     tags: ['PHP', 'MySQL', 'HTML/CSS', 'JavaScript'],
     image: 'https://opengraph.githubassets.com/1/mercy306/school-management',
     github: 'https://github.com/mercy306/school-management',
-    live: null,
+    live: 'https://school-management-pro-rho.vercel.app',
     featured: false,
   },
 ];
