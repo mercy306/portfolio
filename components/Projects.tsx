@@ -75,89 +75,16 @@ export default function Projects() {
   const featuredProject = projects.find((p) => p.featured) || projects[0];
 
   return (
-    <section id="work" className="py-28 relative overflow-hidden" style={{ background: 'transparent' }}>
-      {/* No background - clean isolated look */}
+    <section id="work" className="py-28 relative bg-[#0b0c10] overflow-hidden">
+      {/* Ambient background orb */}
+      <div className="glowing-orb glowing-orb-magenta w-[600px] h-[600px] top-1/4 right-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Featured Project Section - Side by Side Layout */}
-        <div className="grid md:grid-cols-1 gap-12 lg:gap-20 items-center">
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            <div>
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight mb-2">
-                My
-              </h2>
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight">
-                Work
-              </h2>
-            </div>
-
-            <p className="text-slate-300 text-base md:text-lg leading-relaxed font-mono max-w-md">
-              Architected and deployed scalable travel, event and telemedicine web and hybrid mobile apps using React SPA and PWA. Collaborated in 140+ projects with 50+ clients all around the world. I am also interested in data analytics and visualization.
-            </p>
-
-            {/* Featured Project Card */}
-            <div className="border border-[#23273e] bg-[#161826] rounded-xl p-6 space-y-4">
-              <p className="text-slate-400 text-sm font-mono uppercase tracking-widest">
-                Featured Project
-              </p>
-              <h3 className="text-3xl md:text-4xl font-bold text-white">
-                {featuredProject.title}
-              </h3>
-              <p className="text-slate-300 text-base leading-relaxed">
-                {featuredProject.description}
-              </p>
-              
-              {/* Tech Tags */}
-              <div className="flex flex-wrap gap-2 pt-4">
-                {featuredProject.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 rounded-full bg-[#0b0c10] border border-[#23273e] text-slate-300 font-mono text-xs"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex gap-4 pt-6">
-                {featuredProject.live && (
-                  <a
-                    href={featuredProject.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-8 py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
-                  >
-                    View Project
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                )}
-                <a
-                  href={featuredProject.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
-                >
-                  GitHub
-                  <Github className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* All Other Projects Grid */}
-        <div className="mt-24">
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-12">More Projects</h3>
+        {/* Projects Grid */}
+        <div>
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-12">My Work</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.filter((p) => !p.featured).map((project, idx) => (
+            {projects.map((project, idx) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 25 }}
