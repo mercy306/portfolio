@@ -147,34 +147,88 @@ export default function Projects() {
                 }}
                 style={{ transformStyle: 'preserve-3d' }}
               >
-                {/* iPhone Bezel - Premium look */}
-                <div className="relative bg-black rounded-3xl p-2.5 shadow-2xl border border-gray-700"
+                {/* Front - Screen Side */}
+                <div
+                  className="absolute w-full"
                   style={{
-                    boxShadow: '0 25px 70px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.15)',
-                    backdropFilter: 'blur(20px)'
+                    backfaceVisibility: 'hidden',
                   }}
                 >
-                  {/* Screen with rounded corners */}
-                  <div className="relative bg-black rounded-3xl overflow-hidden">
-                    {/* Dynamic Island / Notch */}
-                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 z-20 w-32 h-6 bg-black rounded-b-3xl border border-gray-800" />
-                    
-                    {/* Screen Display - Image */}
-                    <div className="relative w-full">
-                      <img
-                        src={featuredProject.image}
-                        alt={featuredProject.title}
-                        className="w-full h-auto object-cover"
-                        style={{ aspectRatio: '9/19.5', minHeight: '450px' }}
-                      />
+                  {/* iPhone Bezel - Premium look */}
+                  <div className="relative bg-black rounded-3xl p-2.5 shadow-2xl border border-gray-700"
+                    style={{
+                      boxShadow: '0 25px 70px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.15)',
+                      backdropFilter: 'blur(20px)'
+                    }}
+                  >
+                    {/* Screen with rounded corners */}
+                    <div className="relative bg-black rounded-3xl overflow-hidden">
+                      {/* Dynamic Island / Notch */}
+                      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 z-20 w-32 h-6 bg-black rounded-b-3xl border border-gray-800" />
                       
-                      {/* Screen overlay for glass effect */}
-                      <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/10" />
+                      {/* Screen Display - Image */}
+                      <div className="relative w-full">
+                        <img
+                          src={featuredProject.image}
+                          alt={featuredProject.title}
+                          className="w-full h-auto object-cover"
+                          style={{ aspectRatio: '9/19.5', minHeight: '450px' }}
+                        />
+                        
+                        {/* Screen overlay for glass effect */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/10" />
+                      </div>
+                    </div>
+
+                    {/* iPhone Home Indicator */}
+                    <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-white rounded-full opacity-40" />
+                  </div>
+                </div>
+
+                {/* Back - Camera Side (iPhone 3 Style) */}
+                <div
+                  className="absolute w-full"
+                  style={{
+                    backfaceVisibility: 'hidden',
+                    transform: 'rotateY(180deg)',
+                  }}
+                >
+                  <div className="relative bg-gradient-to-b from-gray-100 via-gray-50 to-gray-200 rounded-3xl p-2.5 shadow-2xl"
+                    style={{
+                      boxShadow: '0 25px 70px rgba(0,0,0,0.6), inset 0 -1px 0 rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.8)',
+                      backgroundImage: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(0,0,0,0.05) 100%)'
+                    }}
+                  >
+                    {/* Glossy back panel */}
+                    <div className="relative bg-gradient-to-b from-gray-50 to-gray-100 rounded-3xl overflow-hidden h-96">
+                      {/* Reflective shine */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-black/5" />
+                      
+                      {/* Camera section */}
+                      <div className="absolute top-12 right-8 flex flex-col items-center gap-2">
+                        {/* Camera lens */}
+                        <div className="relative w-12 h-12 bg-black rounded-full shadow-lg"
+                          style={{
+                            boxShadow: '0 4px 12px rgba(0,0,0,0.4), inset 0 1px 3px rgba(0,0,0,0.8), inset 0 -1px 3px rgba(255,255,255,0.2)'
+                          }}
+                        >
+                          {/* Lens reflection */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-black rounded-full" />
+                          <div className="absolute inset-1 bg-gradient-to-b from-transparent via-transparent to-black/50 rounded-full" />
+                        </div>
+                      </div>
+
+                      {/* Apple Logo */}
+                      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-2xl font-light text-gray-400">
+                        🍎
+                      </div>
+
+                      {/* Bottom text */}
+                      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xs text-gray-400 font-light">
+                        iPhone
+                      </div>
                     </div>
                   </div>
-
-                  {/* iPhone Home Indicator */}
-                  <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-white rounded-full opacity-40" />
                 </div>
               </motion.div>
             </div>
