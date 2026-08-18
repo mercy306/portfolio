@@ -135,10 +135,10 @@ export default function Projects() {
             </div>
 
             {/* Phone Mockup Container */}
-            <div className="relative w-full flex justify-center py-8" style={{ perspective: '2000px' }}>
-              {/* Phone Frame - iPhone Style */}
+            <div className="relative w-full flex justify-center py-8" style={{ perspective: '3000px' }}>
+              {/* Phone Frame - iPhone Pro Style - REALISTIC */}
               <motion.div
-                className="relative w-60"
+                className="relative"
                 animate={{ rotateY: 360 }}
                 transition={{
                   duration: 12,
@@ -148,38 +148,36 @@ export default function Projects() {
                 style={{ 
                   transformStyle: 'preserve-3d',
                   transformOrigin: 'center center',
-                  height: '600px'
+                  width: '240px',
+                  height: '480px',
                 }}
               >
                 {/* FRONT - Screen Side */}
                 <div
-                  className="w-full h-full absolute inset-0"
+                  className="absolute inset-0"
                   style={{
                     backfaceVisibility: 'hidden',
                     WebkitBackfaceVisibility: 'hidden',
                   }}
                 >
-                  {/* iPhone Body - Metallic bezel */}
+                  {/* Outer frame - Stainless steel */}
                   <div className="w-full h-full relative rounded-3xl overflow-hidden"
                     style={{
-                      background: 'linear-gradient(135deg, #3a3a3a 0%, #1a1a1a 50%, #0a0a0a 100%)',
+                      background: '#e5e5e5',
                       boxShadow: `
-                        0 30px 60px rgba(0,0,0,0.9),
-                        0 0 40px rgba(0,0,0,0.8),
-                        inset 0 1px 0 rgba(255,255,255,0.1),
-                        inset 0 -1px 0 rgba(0,0,0,0.5)
+                        0 20px 50px rgba(0,0,0,0.4),
+                        inset -1px 0 1px rgba(255,255,255,0.3),
+                        inset 1px 0 1px rgba(0,0,0,0.3),
+                        inset 0 1px 1px rgba(255,255,255,0.2),
+                        inset 0 -1px 1px rgba(0,0,0,0.2)
                       `,
-                      border: '6px solid #2a2a2a',
+                      border: '0px',
                     }}
                   >
-                    {/* Screen - with true bezel */}
-                    <div className="absolute inset-0 m-2 bg-black rounded-2xl overflow-hidden">
+                    {/* Screen area with thin bezel */}
+                    <div className="absolute inset-1.5 bg-black rounded-2xl overflow-hidden shadow-inner">
                       {/* Dynamic Island */}
-                      <div className="absolute top-3 left-1/2 transform -translate-x-1/2 z-20 w-28 h-6 bg-black rounded-full border border-gray-900"
-                        style={{
-                          boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.95)'
-                        }}
-                      />
+                      <div className="absolute top-2.5 left-1/2 transform -translate-x-1/2 z-20 w-20 h-5 bg-black rounded-full" />
                       
                       {/* Screen Display - Image */}
                       <img
@@ -188,98 +186,62 @@ export default function Projects() {
                         className="w-full h-full object-cover"
                       />
                       
-                      {/* Screen glass shine */}
-                      <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/30 pointer-events-none" />
+                      {/* Subtle screen reflection */}
+                      <div className="absolute inset-0 bg-gradient-to-b from-white/8 via-transparent to-transparent pointer-events-none" />
                     </div>
-
-                    {/* Home Indicator Bar */}
-                    <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-28 h-0.5 bg-gray-400 rounded-full opacity-40" />
                   </div>
                 </div>
 
                 {/* BACK - Camera Side */}
                 <div
-                  className="w-full h-full absolute inset-0"
+                  className="absolute inset-0"
                   style={{
                     backfaceVisibility: 'hidden',
                     WebkitBackfaceVisibility: 'hidden',
                     transform: 'rotateY(180deg)',
                   }}
                 >
-                  {/* iPhone Back - Glass appearance */}
+                  {/* Back frame - Stainless steel matching front */}
                   <div className="w-full h-full relative rounded-3xl overflow-hidden"
                     style={{
-                      background: 'linear-gradient(135deg, #4a4a4a 0%, #2a2a2a 50%, #1a1a1a 100%)',
+                      background: '#d8d8d8',
                       boxShadow: `
-                        0 30px 60px rgba(0,0,0,0.9),
-                        0 0 40px rgba(0,0,0,0.8),
-                        inset 0 1px 0 rgba(255,255,255,0.08),
-                        inset 0 -1px 0 rgba(0,0,0,0.5)
+                        0 20px 50px rgba(0,0,0,0.4),
+                        inset -1px 0 1px rgba(255,255,255,0.3),
+                        inset 1px 0 1px rgba(0,0,0,0.3),
+                        inset 0 1px 1px rgba(255,255,255,0.2),
+                        inset 0 -1px 1px rgba(0,0,0,0.2)
                       `,
-                      border: '6px solid #3a3a3a',
                     }}
                   >
-                    {/* Glass back shine reflection */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/8 to-transparent opacity-60" />
-                    
-                    {/* Camera Island - Rectangular like modern iPhones */}
-                    <div className="absolute top-12 left-1/2 transform -translate-x-1/2 w-32 h-40 rounded-3xl"
-                      style={{
-                        background: 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)',
-                        boxShadow: `
-                          inset 0 1px 2px rgba(255,255,255,0.05),
-                          inset 0 -2px 4px rgba(0,0,0,0.95),
-                          0 10px 30px rgba(0,0,0,0.8)
-                        `,
-                        border: '1px solid #2a2a2a'
-                      }}
-                    >
-                      {/* Three camera lenses */}
-                      <div className="w-full h-full flex items-center justify-center gap-6 p-6">
-                        {/* Main camera (left) */}
-                        <div className="flex flex-col items-center">
-                          <div className="w-12 h-12 rounded-full bg-gradient-to-b from-gray-700 to-black relative"
-                            style={{
-                              boxShadow: 'inset 0 2px 6px rgba(0,0,0,0.95), 0 2px 4px rgba(0,0,0,0.7)'
-                            }}
-                          >
-                            <div className="absolute inset-2 rounded-full bg-gradient-to-b from-gray-900 to-black/90"
-                              style={{
-                                boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.9)'
-                              }}
-                            />
-                          </div>
-                          <span className="text-xs text-gray-500 mt-2 font-mono">Pro</span>
-                        </div>
-
-                        {/* Ultra-wide camera (right) */}
-                        <div className="flex flex-col items-center">
-                          <div className="w-10 h-10 rounded-full bg-gradient-to-b from-gray-700 to-black relative"
-                            style={{
-                              boxShadow: 'inset 0 2px 6px rgba(0,0,0,0.95), 0 2px 4px rgba(0,0,0,0.7)'
-                            }}
-                          >
-                            <div className="absolute inset-2 rounded-full bg-gradient-to-b from-gray-900 to-black/90"
-                              style={{
-                                boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.9)'
-                              }}
-                            />
-                          </div>
-                          <span className="text-xs text-gray-500 mt-2 font-mono">Wide</span>
-                        </div>
-                      </div>
-
-                      {/* Flash light */}
-                      <div className="absolute bottom-6 right-6 w-5 h-7 bg-yellow-100 rounded-sm opacity-70"
+                    {/* Glass panel with subtle texture */}
+                    <div className="absolute inset-1.5 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-200 rounded-2xl overflow-hidden">
+                      {/* Glass reflection top-left */}
+                      <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-xl" />
+                      
+                      {/* Camera Island */}
+                      <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-24 h-32 rounded-2xl"
                         style={{
-                          boxShadow: 'inset 0 1px 2px rgba(255,255,255,0.3), 0 2px 4px rgba(0,0,0,0.5)'
+                          background: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)',
+                          boxShadow: '0 8px 16px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
                         }}
-                      />
-                    </div>
-
-                    {/* Apple Logo */}
-                    <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-3xl opacity-50">
-                      🍎
+                      >
+                        {/* Camera lenses - tight spacing like real iPhone */}
+                        <div className="w-full h-full flex flex-col items-center justify-center gap-4 p-4">
+                          {/* Main camera */}
+                          <div className="w-8 h-8 rounded-full bg-black/90 relative" style={{ boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.5)' }}>
+                            <div className="absolute inset-1.5 rounded-full bg-gradient-to-b from-gray-900 to-black" />
+                          </div>
+                          
+                          {/* Telephoto camera */}
+                          <div className="w-6 h-6 rounded-full bg-black/90 relative" style={{ boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.5)' }}>
+                            <div className="absolute inset-1 rounded-full bg-gradient-to-b from-gray-900 to-black" />
+                          </div>
+                        </div>
+                        
+                        {/* Flash */}
+                        <div className="absolute bottom-4 right-4 w-3 h-4 bg-yellow-50 rounded-sm" style={{ boxShadow: '0 1px 2px rgba(0,0,0,0.4)' }} />
+                      </div>
                     </div>
                   </div>
                 </div>
