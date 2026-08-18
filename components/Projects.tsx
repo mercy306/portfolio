@@ -135,7 +135,7 @@ export default function Projects() {
             </div>
 
             {/* Phone Mockup Container */}
-            <div className="relative w-full flex justify-center py-8">
+            <div className="relative w-full flex justify-center py-8" style={{ perspective: '1200px' }}>
               {/* Phone Frame - iPhone Style */}
               <motion.div
                 className="relative w-full max-w-xs"
@@ -145,13 +145,17 @@ export default function Projects() {
                   repeat: Infinity,
                   ease: 'linear',
                 }}
-                style={{ transformStyle: 'preserve-3d' }}
+                style={{ 
+                  transformStyle: 'preserve-3d',
+                  transformOrigin: 'center center',
+                }}
               >
-                {/* Front - Screen Side */}
+                {/* FRONT - Screen Side */}
                 <div
-                  className="absolute w-full"
+                  className="w-full"
                   style={{
                     backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
                   }}
                 >
                   {/* iPhone Bezel - Premium look */}
@@ -185,15 +189,16 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* Back - Camera Side (iPhone 3 Style) */}
+                {/* BACK - Camera Side (iPhone 3 Style) */}
                 <div
-                  className="absolute w-full"
+                  className="w-full absolute inset-0"
                   style={{
                     backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
                     transform: 'rotateY(180deg)',
                   }}
                 >
-                  <div className="relative bg-gradient-to-b from-gray-100 via-gray-50 to-gray-200 rounded-3xl p-2.5 shadow-2xl"
+                  <div className="relative bg-gradient-to-b from-gray-100 via-gray-50 to-gray-200 rounded-3xl p-2.5 shadow-2xl h-full"
                     style={{
                       boxShadow: '0 25px 70px rgba(0,0,0,0.6), inset 0 -1px 0 rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.8)',
                       backgroundImage: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(0,0,0,0.05) 100%)'
