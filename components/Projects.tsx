@@ -141,7 +141,7 @@ export default function Projects() {
                 className="relative w-full max-w-xs"
                 animate={{ rotateY: 360 }}
                 transition={{
-                  duration: 8,
+                  duration: 12,
                   repeat: Infinity,
                   ease: 'linear',
                 }}
@@ -159,11 +159,12 @@ export default function Projects() {
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 z-10 w-40 h-7 bg-black rounded-b-3xl" />
                     
                     {/* Screen content */}
-                    <div className="bg-white rounded-2xl overflow-hidden relative">
+                    <div className="bg-white rounded-2xl overflow-hidden relative w-full">
                       <img
                         src={featuredProject.image}
                         alt={featuredProject.title}
-                        className="w-full h-screen max-h-96 object-cover"
+                        className="w-full h-auto object-cover"
+                        style={{ minHeight: '400px' }}
                       />
                     </div>
                   </div>
