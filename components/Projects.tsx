@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 
 const projects = [
   {
@@ -16,7 +15,7 @@ const projects = [
     image: 'https://opengraph.githubassets.com/1/mercy306/counselconnect',
     github: 'https://github.com/mercy306/counselconnect',
     live: 'https://counselconnect-neon.vercel.app',
-    featured: true,
+    featured: false,
   },
   {
     id: 'harar-guide',
@@ -39,10 +38,10 @@ const projects = [
     description:
       'An engaging interactive game application built with Kotlin and Android featuring uplifting gameplay mechanics, level progression, and intuitive user interfaces.',
     tags: ['Kotlin', 'Android SDK', 'Game Dev', 'Mobile UI'],
-    image: 'https://opengraph.githubassets.com/1/mercy306/FaithJourney',
+    image: '/faith-journey-icon.png',
     github: 'https://github.com/mercy306/FaithJourney',
     live: null,
-    featured: false,
+    featured: true,
   },
   {
     id: 'smart-folder-video-player',
@@ -73,174 +72,113 @@ const projects = [
 ];
 
 export default function Projects() {
-  const [activeFilter, setActiveFilter] = useState('all');
-
-  const filteredProjects =
-    activeFilter === 'all'
-      ? projects
-      : projects.filter((p) => p.category === activeFilter);
+  const featuredProject = projects.find((p) => p.featured) || projects[0];
 
   return (
-    <section id="work" className="py-28 relative bg-[#32353C] overflow-hidden">
+    <section id="work" className="py-28 relative bg-[#0b0c10] overflow-hidden">
       {/* Ambient background orb */}
       <div className="glowing-orb glowing-orb-magenta w-[600px] h-[600px] top-1/4 right-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Top Header & Intro Grid */}
-        <div className="grid md:grid-cols-2 gap-8 items-end mb-16">
+        {/* Featured Project Section - Side by Side Layout */}
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="space-y-8"
           >
-            <h2 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mb-4">
-              My <br />
-              <span className="text-[#66D9ED]">Work</span>
-            </h2>
-            <div className="w-16 h-1 bg-[#DF058D] rounded-full" />
-          </motion.div>
+            <div>
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight mb-2">
+                My
+              </h2>
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight">
+                Work
+              </h2>
+            </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="text-slate-300 font-mono-code text-sm leading-relaxed"
-          >
-            <p>
-              Architected and deployed full-stack web and mobile applications. Specializing in React, Next.js, React Native, and database integrations.
+            <p className="text-slate-300 text-base md:text-lg leading-relaxed font-mono max-w-md">
+              Architected and deployed scalable travel, event and telemedicine web and hybrid mobile apps using React SPA and PWA. Collaborated in 140+ projects with 50+ clients all around the world. I am also interested in data analytics and visualization.
             </p>
+
+            {/* Tech Tags */}
+            <div className="flex flex-wrap gap-2 pt-4">
+              {featuredProject.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 rounded-full bg-[#161826] border border-[#23273e] text-slate-300 font-mono text-xs"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </motion.div>
-        </div>
 
-        {/* Category Filter Tabs (Isotope style) */}
-        <div className="flex items-center gap-4 mb-12 font-mono-code text-sm border-b border-[#181b2c] pb-4">
-          <span className="text-slate-500 text-xs uppercase tracking-wider">Filter by:</span>
-          <button
-            onClick={() => setActiveFilter('all')}
-            className={`transition-colors font-medium px-3 py-1 rounded ${
-              activeFilter === 'all'
-                ? 'text-[#66D9ED] bg-[#24262B] border border-[#3a3d47]'
-                : 'text-slate-400 hover:text-white'
-            }`}
+          {/* Right - Featured Project Card */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center justify-center space-y-6"
           >
-            All <span className="text-xs text-slate-500">({projects.length})</span>
-          </button>
-          <span className="text-slate-600">/</span>
-          <button
-            onClick={() => setActiveFilter('web')}
-            className={`transition-colors font-medium px-3 py-1 rounded ${
-              activeFilter === 'web'
-                ? 'text-[#66D9ED] bg-[#24262B] border border-[#3a3d47]'
-                : 'text-slate-400 hover:text-white'
-            }`}
-          >
-            Web Development
-          </button>
-          <span className="text-slate-600">/</span>
-          <button
-            onClick={() => setActiveFilter('game')}
-            className={`transition-colors font-medium px-3 py-1 rounded ${
-              activeFilter === 'game'
-                ? 'text-[#66D9ED] bg-[#24262B] border border-[#3a3d47]'
-                : 'text-slate-400 hover:text-white'
-            }`}
-          >
-            Games
-          </button>
-          <span className="text-slate-600">/</span>
-          <button
-            onClick={() => setActiveFilter('mobile')}
-            className={`transition-colors font-medium px-3 py-1 rounded ${
-              activeFilter === 'mobile'
-                ? 'text-[#66D9ED] bg-[#24262B] border border-[#3a3d47]'
-                : 'text-slate-400 hover:text-white'
-            }`}
-          >
-            Mobile Apps
-          </button>
-        </div>
+            {/* Featured Project Label */}
+            <div className="text-right w-full">
+              <p className="text-slate-400 text-sm font-mono uppercase tracking-widest mb-2">
+                Featured Project
+              </p>
+              <h3 className="text-3xl md:text-4xl font-bold text-white">
+                {featuredProject.title}
+              </h3>
+            </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, idx) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              viewport={{ once: true }}
-              className={`tamal-card rounded-xl overflow-hidden group flex flex-col justify-between ${
-                project.featured ? 'md:col-span-2 lg:col-span-2' : ''
-              }`}
-            >
-              {/* Image Preview with Hover Zoom & Color Overlay */}
-              <div className="relative h-60 sm:h-72 overflow-hidden bg-[#161826]">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
-                />
-                {/* Gradient color overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0b0c10] via-[#0b0c10]/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-
-                {/* Show Project Drawer Tag */}
-                <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
-                  <span className="px-3 py-1 rounded bg-[#10121d]/90 border border-[#23273e] text-[#66D9ED] font-mono-code text-xs">
-                    {project.categoryLabel}
-                  </span>
-                  <div className="flex gap-2">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2.5 rounded-full bg-[#161826]/90 border border-[#23273e] text-white hover:text-[#66D9ED] hover:border-[#66D9ED] transition-all"
-                      aria-label="GitHub Code"
-                    >
-                      <Github className="w-4 h-4" />
-                    </a>
-                    {project.live && (
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2.5 rounded-full bg-[#2C49D8] text-white hover:bg-[#3856ed] transition-all"
-                        aria-label="Live Demo"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    )}
+            {/* Phone Mockup Container */}
+            <div className="relative w-full flex justify-center py-8">
+              {/* Phone Frame */}
+              <div className="relative w-full max-w-xs">
+                {/* Outer Phone Bezel */}
+                <div className="bg-gray-900 rounded-3xl p-3 shadow-2xl transform perspective">
+                  {/* Screen */}
+                  <div className="bg-white rounded-3xl overflow-hidden">
+                    <img
+                      src={featuredProject.image}
+                      alt={featuredProject.title}
+                      className="w-full h-auto object-cover"
+                    />
                   </div>
+
+                  {/* Phone Details */}
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1/3 h-6 bg-gray-900 rounded-b-2xl" />
                 </div>
               </div>
+            </div>
 
-              {/* Details Content */}
-              <div className="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#66D9ED] transition-colors flex items-center gap-2">
-                    <span>{project.title}</span>
-                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-[#66D9ED]" />
-                  </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed mb-6 font-sans">
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* Tech Tags */}
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-[#181b2c]">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-1 rounded bg-[#161826] border border-[#23273e] text-slate-300 font-mono-code text-xs"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+            {/* Action Buttons */}
+            <div className="flex gap-4 justify-center w-full pt-6">
+              {featuredProject.live && (
+                <a
+                  href={featuredProject.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+                >
+                  View Project
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              )}
+              <a
+                href={featuredProject.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+              >
+                GitHub
+                <Github className="w-4 h-4" />
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
