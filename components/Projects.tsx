@@ -25,7 +25,7 @@ const projects = [
     description:
       "A comprehensive React Native mobile app showcasing Harar's rich UNESCO cultural heritage with interactive site navigation and audio guides.",
     tags: ['React Native', 'JavaScript', 'Audio Player', 'Mobile UI'],
-    image: 'https://opengraph.githubassets.com/1/mercy306/harar-cultural-guide',
+    image: '/harar-guide.png',
     github: 'https://github.com/mercy306/harar-cultural-guide',
     live: 'https://harar-cultural-guide.vercel.app',
     featured: false,
