@@ -51,7 +51,7 @@ const projects = [
     description:
       'An intelligent Android media player application featuring smart folder organization, gesture controls, playlist management, and smooth video playback.',
     tags: ['Kotlin', 'Android SDK', 'ExoPlayer', 'Media UI'],
-    image: 'https://opengraph.githubassets.com/1/mercy306/SmartFolderVideoPlayer',
+    image: '/smart-folder-video-player.jpg',
     github: 'https://github.com/mercy306/SmartFolderVideoPlayer',
     live: null,
     featured: false,
