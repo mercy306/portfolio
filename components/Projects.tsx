@@ -135,7 +135,7 @@ export default function Projects() {
             </div>
 
             {/* Phone Mockup Container */}
-            <div className="relative w-full flex justify-center py-8" style={{ perspective: '1200px' }}>
+            <div className="relative w-full flex justify-center py-8" style={{ perspective: '1500px', minHeight: '600px' }}>
               {/* Phone Frame - iPhone Style */}
               <motion.div
                 className="relative w-full max-w-xs"
@@ -148,35 +148,34 @@ export default function Projects() {
                 style={{ 
                   transformStyle: 'preserve-3d',
                   transformOrigin: 'center center',
+                  height: '500px'
                 }}
               >
                 {/* FRONT - Screen Side */}
                 <div
-                  className="w-full"
+                  className="w-full h-full absolute inset-0"
                   style={{
                     backfaceVisibility: 'hidden',
                     WebkitBackfaceVisibility: 'hidden',
                   }}
                 >
                   {/* iPhone Bezel - Premium look */}
-                  <div className="relative bg-black rounded-3xl p-2.5 shadow-2xl border border-gray-700"
+                  <div className="relative bg-black rounded-3xl p-2.5 shadow-2xl border border-gray-700 h-full"
                     style={{
                       boxShadow: '0 25px 70px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.15)',
-                      backdropFilter: 'blur(20px)'
                     }}
                   >
                     {/* Screen with rounded corners */}
-                    <div className="relative bg-black rounded-3xl overflow-hidden">
+                    <div className="relative bg-black rounded-3xl overflow-hidden h-full">
                       {/* Dynamic Island / Notch */}
                       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 z-20 w-32 h-6 bg-black rounded-b-3xl border border-gray-800" />
                       
                       {/* Screen Display - Image */}
-                      <div className="relative w-full">
+                      <div className="relative w-full h-full">
                         <img
                           src={featuredProject.image}
                           alt={featuredProject.title}
-                          className="w-full h-auto object-cover"
-                          style={{ aspectRatio: '9/19.5', minHeight: '450px' }}
+                          className="w-full h-full object-cover"
                         />
                         
                         {/* Screen overlay for glass effect */}
@@ -189,48 +188,73 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* BACK - Camera Side (iPhone 3 Style) */}
+                {/* BACK - Camera Side (iPhone 11/12 Modern Style) */}
                 <div
-                  className="w-full absolute inset-0"
+                  className="w-full h-full absolute inset-0"
                   style={{
                     backfaceVisibility: 'hidden',
                     WebkitBackfaceVisibility: 'hidden',
                     transform: 'rotateY(180deg)',
                   }}
                 >
-                  <div className="relative bg-gradient-to-b from-gray-100 via-gray-50 to-gray-200 rounded-3xl p-2.5 shadow-2xl h-full"
+                  {/* iPhone Back - Modern Dark Gray */}
+                  <div className="relative bg-gradient-to-b from-gray-800 via-gray-900 to-black rounded-3xl p-2.5 shadow-2xl border border-gray-700 h-full"
                     style={{
-                      boxShadow: '0 25px 70px rgba(0,0,0,0.6), inset 0 -1px 0 rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.8)',
-                      backgroundImage: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(0,0,0,0.05) 100%)'
+                      boxShadow: '0 25px 70px rgba(0,0,0,0.9), inset 0 -1px 0 rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)',
                     }}
                   >
-                    {/* Glossy back panel */}
-                    <div className="relative bg-gradient-to-b from-gray-50 to-gray-100 rounded-3xl overflow-hidden h-96">
-                      {/* Reflective shine */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-black/5" />
+                    {/* Back panel with metallic finish */}
+                    <div className="relative bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 rounded-3xl overflow-hidden h-full">
+                      {/* Glossy reflection */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/30" />
                       
-                      {/* Camera section */}
-                      <div className="absolute top-12 right-8 flex flex-col items-center gap-2">
-                        {/* Camera lens */}
-                        <div className="relative w-12 h-12 bg-black rounded-full shadow-lg"
-                          style={{
-                            boxShadow: '0 4px 12px rgba(0,0,0,0.4), inset 0 1px 3px rgba(0,0,0,0.8), inset 0 -1px 3px rgba(255,255,255,0.2)'
-                          }}
-                        >
-                          {/* Lens reflection */}
-                          <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-black rounded-full" />
-                          <div className="absolute inset-1 bg-gradient-to-b from-transparent via-transparent to-black/50 rounded-full" />
+                      {/* Camera Module - Square housing (iPhone 11/12 style) */}
+                      <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-black rounded-2xl"
+                        style={{
+                          boxShadow: '0 8px 20px rgba(0,0,0,0.6), inset 0 1px 2px rgba(0,0,0,0.8)'
+                        }}
+                      >
+                        {/* Camera lenses arrangement */}
+                        <div className="w-full h-full flex items-center justify-center">
+                          {/* Top-left lens */}
+                          <div className="absolute top-4 left-4 w-10 h-10 bg-gray-900 rounded-full"
+                            style={{
+                              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.9), 0 2px 6px rgba(0,0,0,0.8)'
+                            }}
+                          >
+                            <div className="w-full h-full bg-gradient-to-br from-gray-700 to-black rounded-full" />
+                          </div>
+                          
+                          {/* Top-right lens */}
+                          <div className="absolute top-4 right-4 w-10 h-10 bg-gray-900 rounded-full"
+                            style={{
+                              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.9), 0 2px 6px rgba(0,0,0,0.8)'
+                            }}
+                          >
+                            <div className="w-full h-full bg-gradient-to-br from-gray-700 to-black rounded-full" />
+                          </div>
+
+                          {/* Bottom-left lens */}
+                          <div className="absolute bottom-4 left-4 w-10 h-10 bg-gray-900 rounded-full"
+                            style={{
+                              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.9), 0 2px 6px rgba(0,0,0,0.8)'
+                            }}
+                          >
+                            <div className="w-full h-full bg-gradient-to-br from-gray-700 to-black rounded-full" />
+                          </div>
+
+                          {/* Flash */}
+                          <div className="absolute bottom-4 right-4 w-6 h-6 bg-yellow-100 rounded-sm opacity-70"
+                            style={{
+                              boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.3)'
+                            }}
+                          />
                         </div>
                       </div>
 
                       {/* Apple Logo */}
-                      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-2xl font-light text-gray-400">
+                      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-3xl text-gray-600">
                         🍎
-                      </div>
-
-                      {/* Bottom text */}
-                      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xs text-gray-400 font-light">
-                        iPhone
                       </div>
                     </div>
                   </div>
