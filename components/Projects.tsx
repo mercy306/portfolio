@@ -80,7 +80,7 @@ export default function Projects() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Featured Project Section - Side by Side Layout */}
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid md:grid-cols-1 gap-12 lg:gap-20 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -102,132 +102,53 @@ export default function Projects() {
               Architected and deployed scalable travel, event and telemedicine web and hybrid mobile apps using React SPA and PWA. Collaborated in 140+ projects with 50+ clients all around the world. I am also interested in data analytics and visualization.
             </p>
 
-            {/* Tech Tags */}
-            <div className="flex flex-wrap gap-2 pt-4">
-              {featuredProject.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 rounded-full bg-[#161826] border border-[#23273e] text-slate-300 font-mono text-xs"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Right - Featured Project Card */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="flex flex-col items-center justify-center space-y-6"
-          >
-            {/* Featured Project Label */}
-            <div className="text-right w-full">
-              <p className="text-slate-400 text-sm font-mono uppercase tracking-widest mb-2">
+            {/* Featured Project Card */}
+            <div className="border border-[#23273e] bg-[#161826] rounded-xl p-6 space-y-4">
+              <p className="text-slate-400 text-sm font-mono uppercase tracking-widest">
                 Featured Project
               </p>
               <h3 className="text-3xl md:text-4xl font-bold text-white">
                 {featuredProject.title}
               </h3>
-            </div>
-
-            {/* Phone Mockup Container */}
-            <div className="relative w-full flex justify-center py-8" style={{ perspective: '3000px' }}>
-              {/* Phone Frame - iPhone Pro Style - REALISTIC */}
-              <motion.div
-                className="relative"
-                animate={{ rotateY: 360 }}
-                transition={{
-                  duration: 12,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
-                style={{ 
-                  transformStyle: 'preserve-3d',
-                  transformOrigin: 'center center',
-                  width: '240px',
-                  height: '480px',
-                }}
-              >
-                {/* FRONT - Screen Side ONLY - showing game */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backfaceVisibility: 'hidden',
-                    WebkitBackfaceVisibility: 'hidden',
-                  }}
-                >
-                  {/* Outer frame - Stainless steel */}
-                  <div className="w-full h-full relative rounded-3xl overflow-hidden"
-                    style={{
-                      background: '#e5e5e5',
-                      boxShadow: `
-                        0 20px 50px rgba(0,0,0,0.4),
-                        inset -1px 0 1px rgba(255,255,255,0.3),
-                        inset 1px 0 1px rgba(0,0,0,0.3),
-                        inset 0 1px 1px rgba(255,255,255,0.2),
-                        inset 0 -1px 1px rgba(0,0,0,0.2)
-                      `,
-                      border: '0px',
-                    }}
+              <p className="text-slate-300 text-base leading-relaxed">
+                {featuredProject.description}
+              </p>
+              
+              {/* Tech Tags */}
+              <div className="flex flex-wrap gap-2 pt-4">
+                {featuredProject.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 rounded-full bg-[#0b0c10] border border-[#23273e] text-slate-300 font-mono text-xs"
                   >
-                    {/* Screen area with thin bezel */}
-                    <div className="absolute inset-1 bg-black rounded-2xl overflow-hidden shadow-inner">
-                      {/* Screen Display - Image - FULL SCREEN */}
-                      <img
-                        src={featuredProject.image}
-                        alt={featuredProject.title}
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                      
-                      {/* Dynamic Island */}
-                      <div className="absolute top-2.5 left-1/2 transform -translate-x-1/2 z-20 w-20 h-5 bg-black rounded-full" />
-                      
-                      {/* Subtle screen reflection */}
-                      <div className="absolute inset-0 bg-gradient-to-b from-white/8 via-transparent to-transparent pointer-events-none" />
-                    </div>
-                  </div>
-                </div>
+                    {tag}
+                  </span>
+                ))}
+              </div>
 
-                {/* BACK - Rotate to show back but rotates away */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backfaceVisibility: 'hidden',
-                    WebkitBackfaceVisibility: 'hidden',
-                    transform: 'rotateY(180deg)',
-                  }}
-                >
-                  {/* Empty - just shows black when rotated */}
-                  <div className="w-full h-full bg-black rounded-3xl" />
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex gap-4 justify-center w-full pt-6">
-              {featuredProject.live && (
+              {/* Action Buttons */}
+              <div className="flex gap-4 pt-6">
+                {featuredProject.live && (
+                  <a
+                    href={featuredProject.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+                  >
+                    View Project
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                )}
                 <a
-                  href={featuredProject.live}
+                  href={featuredProject.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+                  className="px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
                 >
-                  View Project
-                  <ExternalLink className="w-4 h-4" />
+                  GitHub
+                  <Github className="w-4 h-4" />
                 </a>
-              )}
-              <a
-                href={featuredProject.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
-              >
-                GitHub
-                <Github className="w-4 h-4" />
-              </a>
+              </div>
             </div>
           </motion.div>
         </div>
