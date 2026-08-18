@@ -135,11 +135,20 @@ export default function Projects() {
             </div>
 
             {/* Phone Mockup Container */}
-            <div className="relative w-full flex justify-center py-8">
+            <div className="relative w-full flex justify-center py-8 perspective">
               {/* Phone Frame */}
-              <div className="relative w-full max-w-xs">
+              <motion.div
+                className="relative w-full max-w-xs"
+                animate={{ rotateY: 360 }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}
+                style={{ transformStyle: 'preserve-3d' }}
+              >
                 {/* Outer Phone Bezel */}
-                <div className="bg-gray-900 rounded-3xl p-3 shadow-2xl transform perspective">
+                <div className="bg-gray-900 rounded-3xl p-3 shadow-2xl">
                   {/* Screen */}
                   <div className="bg-white rounded-3xl overflow-hidden">
                     <img
@@ -149,10 +158,10 @@ export default function Projects() {
                     />
                   </div>
 
-                  {/* Phone Details */}
+                  {/* Phone Notch */}
                   <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1/3 h-6 bg-gray-900 rounded-b-2xl" />
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Action Buttons */}
