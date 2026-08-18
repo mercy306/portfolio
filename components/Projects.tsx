@@ -38,7 +38,7 @@ const projects = [
     description:
       'An engaging interactive game application built with Kotlin and Android featuring uplifting gameplay mechanics, level progression, and intuitive user interfaces.',
     tags: ['Kotlin', 'Android SDK', 'Game Dev', 'Mobile UI'],
-    image: '/faith-journey-icon.png',
+    image: '/faith-journey-game.png',
     github: 'https://github.com/mercy306/FaithJourney',
     live: null,
     featured: true,
