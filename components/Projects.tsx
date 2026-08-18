@@ -180,6 +180,84 @@ export default function Projects() {
             </div>
           </motion.div>
         </div>
+
+        {/* All Other Projects Grid */}
+        <div className="mt-24">
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-12">More Projects</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.filter((p) => !p.featured).map((project, idx) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className="rounded-xl overflow-hidden group flex flex-col justify-between border border-[#23273e] bg-[#161826] hover:border-[#66D9ED] transition-all"
+              >
+                {/* Image Preview */}
+                <div className="relative h-48 overflow-hidden bg-[#0b0c10]">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0b0c10] via-[#0b0c10]/40 to-transparent opacity-80" />
+                  
+                  {/* Links */}
+                  <div className="absolute bottom-4 right-4 flex gap-2">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2.5 rounded-full bg-[#161826]/90 border border-[#23273e] text-white hover:text-[#66D9ED] hover:border-[#66D9ED] transition-all"
+                      aria-label="GitHub Code"
+                    >
+                      <Github className="w-4 h-4" />
+                    </a>
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2.5 rounded-full bg-purple-600 hover:bg-purple-700 text-white transition-all"
+                        aria-label="Live Demo"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <span className="text-[#66D9ED] text-xs font-mono uppercase tracking-wider">
+                      {project.categoryLabel}
+                    </span>
+                    <h4 className="text-lg font-bold text-white mt-2 mb-2">
+                      {project.title}
+                    </h4>
+                    <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  {/* Tech Tags */}
+                  <div className="flex flex-wrap gap-2 pt-4 border-t border-[#23273e]">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 rounded text-xs bg-[#0b0c10] border border-[#23273e] text-slate-300 font-mono"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
