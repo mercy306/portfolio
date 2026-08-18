@@ -175,16 +175,16 @@ export default function Projects() {
                     }}
                   >
                     {/* Screen area with thin bezel */}
-                    <div className="absolute inset-1.5 bg-black rounded-2xl overflow-hidden shadow-inner">
-                      {/* Dynamic Island */}
-                      <div className="absolute top-2.5 left-1/2 transform -translate-x-1/2 z-20 w-20 h-5 bg-black rounded-full" />
-                      
-                      {/* Screen Display - Image */}
+                    <div className="absolute inset-1 bg-black rounded-2xl overflow-hidden shadow-inner">
+                      {/* Screen Display - Image - FULL SCREEN */}
                       <img
                         src={featuredProject.image}
                         alt={featuredProject.title}
-                        className="w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-cover"
                       />
+                      
+                      {/* Dynamic Island */}
+                      <div className="absolute top-2.5 left-1/2 transform -translate-x-1/2 z-20 w-20 h-5 bg-black rounded-full" />
                       
                       {/* Subtle screen reflection */}
                       <div className="absolute inset-0 bg-gradient-to-b from-white/8 via-transparent to-transparent pointer-events-none" />
