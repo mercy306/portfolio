@@ -64,7 +64,7 @@ const projects = [
     description:
       'A comprehensive web application for managing student records, grade tracking, course enrollments, and administrative workflows using PHP and MySQL.',
     tags: ['PHP', 'MySQL', 'HTML/CSS', 'JavaScript'],
-    image: 'https://opengraph.githubassets.com/1/mercy306/school-management',
+    image: '/school-management.png',
     github: 'https://github.com/mercy306/school-management',
     live: 'https://school-management-pro-rho.vercel.app',
     featured: false,
