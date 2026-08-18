@@ -12,7 +12,7 @@ const projects = [
     description:
       'A full-stack web counselling system connecting clients with professional counselors. Features real-time chat UI, appointment scheduling, user authentication, and MongoDB database storage.',
     tags: ['React.js', 'Next.js', 'Node.js', 'MongoDB', 'Tailwind CSS'],
-    image: 'https://opengraph.githubassets.com/1/mercy306/counselconnect',
+    image: '/counselconnect.png',
     github: 'https://github.com/mercy306/counselconnect',
     live: 'https://counselconnect-neon.vercel.app',
     featured: false,
