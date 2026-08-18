@@ -147,19 +147,33 @@ export default function Projects() {
                 }}
                 style={{ transformStyle: 'preserve-3d' }}
               >
-                {/* Outer Phone Bezel */}
-                <div className="bg-gray-900 rounded-3xl p-3 shadow-2xl">
-                  {/* Screen */}
-                  <div className="bg-white rounded-3xl overflow-hidden">
-                    <img
-                      src={featuredProject.image}
-                      alt={featuredProject.title}
-                      className="w-full h-auto object-cover"
-                    />
+                {/* Outer Phone Bezel - Dark gray aluminum frame */}
+                <div className="relative bg-gradient-to-b from-gray-700 to-gray-800 rounded-3xl p-3 shadow-2xl border border-gray-600"
+                  style={{
+                    boxShadow: '0 20px 60px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.1)'
+                  }}
+                >
+                  {/* Screen bezels/rounded corners */}
+                  <div className="bg-black rounded-3xl overflow-hidden border-8 border-black">
+                    {/* Phone notch */}
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 z-10 w-40 h-7 bg-black rounded-b-3xl" />
+                    
+                    {/* Screen content */}
+                    <div className="bg-white rounded-2xl overflow-hidden relative">
+                      <img
+                        src={featuredProject.image}
+                        alt={featuredProject.title}
+                        className="w-full h-screen max-h-96 object-cover"
+                      />
+                    </div>
                   </div>
 
-                  {/* Phone Notch */}
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1/3 h-6 bg-gray-900 rounded-b-2xl" />
+                  {/* Side buttons */}
+                  <div className="absolute right-0 top-24 w-1 h-16 bg-gray-600 rounded-l" />
+                  <div className="absolute right-0 top-44 w-1 h-12 bg-gray-600 rounded-l" />
+
+                  {/* Bottom speaker/bezel */}
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-black rounded-full opacity-60" />
                 </div>
               </motion.div>
             </div>
