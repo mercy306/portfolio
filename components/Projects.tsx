@@ -75,9 +75,8 @@ export default function Projects() {
   const featuredProject = projects.find((p) => p.featured) || projects[0];
 
   return (
-    <section id="work" className="py-28 relative bg-[#0b0c10] overflow-hidden">
-      {/* Ambient background orb */}
-      <div className="glowing-orb glowing-orb-magenta w-[600px] h-[600px] top-1/4 right-0" />
+    <section id="work" className="py-28 relative overflow-hidden" style={{ background: 'transparent' }}>
+      {/* No background - clean isolated look */}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Featured Project Section - Side by Side Layout */}
