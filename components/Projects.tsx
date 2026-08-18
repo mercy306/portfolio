@@ -135,8 +135,8 @@ export default function Projects() {
             </div>
 
             {/* Phone Mockup Container */}
-            <div className="relative w-full flex justify-center py-8 perspective">
-              {/* Phone Frame */}
+            <div className="relative w-full flex justify-center py-8">
+              {/* Phone Frame - iPhone Style */}
               <motion.div
                 className="relative w-full max-w-xs"
                 animate={{ rotateY: 360 }}
@@ -147,34 +147,34 @@ export default function Projects() {
                 }}
                 style={{ transformStyle: 'preserve-3d' }}
               >
-                {/* Outer Phone Bezel - Dark gray aluminum frame */}
-                <div className="relative bg-gradient-to-b from-gray-700 to-gray-800 rounded-3xl p-3 shadow-2xl border border-gray-600"
+                {/* iPhone Bezel - Premium look */}
+                <div className="relative bg-black rounded-3xl p-2.5 shadow-2xl border border-gray-700"
                   style={{
-                    boxShadow: '0 20px 60px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.1)'
+                    boxShadow: '0 25px 70px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.15)',
+                    backdropFilter: 'blur(20px)'
                   }}
                 >
-                  {/* Screen bezels/rounded corners */}
-                  <div className="bg-black rounded-3xl overflow-hidden border-8 border-black">
-                    {/* Phone notch */}
-                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 z-10 w-40 h-7 bg-black rounded-b-3xl" />
+                  {/* Screen with rounded corners */}
+                  <div className="relative bg-black rounded-3xl overflow-hidden">
+                    {/* Dynamic Island / Notch */}
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 z-20 w-32 h-6 bg-black rounded-b-3xl border border-gray-800" />
                     
-                    {/* Screen content */}
-                    <div className="bg-white rounded-2xl overflow-hidden relative w-full">
+                    {/* Screen Display - Image */}
+                    <div className="relative w-full">
                       <img
                         src={featuredProject.image}
                         alt={featuredProject.title}
                         className="w-full h-auto object-cover"
-                        style={{ minHeight: '400px' }}
+                        style={{ aspectRatio: '9/19.5', minHeight: '450px' }}
                       />
+                      
+                      {/* Screen overlay for glass effect */}
+                      <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/10" />
                     </div>
                   </div>
 
-                  {/* Side buttons */}
-                  <div className="absolute right-0 top-24 w-1 h-16 bg-gray-600 rounded-l" />
-                  <div className="absolute right-0 top-44 w-1 h-12 bg-gray-600 rounded-l" />
-
-                  {/* Bottom speaker/bezel */}
-                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-black rounded-full opacity-60" />
+                  {/* iPhone Home Indicator */}
+                  <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-white rounded-full opacity-40" />
                 </div>
               </motion.div>
             </div>
