@@ -135,10 +135,10 @@ export default function Projects() {
             </div>
 
             {/* Phone Mockup Container */}
-            <div className="relative w-full flex justify-center py-8" style={{ perspective: '1500px', minHeight: '600px' }}>
+            <div className="relative w-full flex justify-center py-8" style={{ perspective: '1500px' }}>
               {/* Phone Frame - iPhone Style */}
               <motion.div
-                className="relative w-full max-w-xs"
+                className="relative w-80"
                 animate={{ rotateY: 360 }}
                 transition={{
                   duration: 12,
@@ -148,7 +148,7 @@ export default function Projects() {
                 style={{ 
                   transformStyle: 'preserve-3d',
                   transformOrigin: 'center center',
-                  height: '500px'
+                  height: '480px'
                 }}
               >
                 {/* FRONT - Screen Side */}
@@ -159,36 +159,35 @@ export default function Projects() {
                     WebkitBackfaceVisibility: 'hidden',
                   }}
                 >
-                  {/* iPhone Bezel - Premium look */}
-                  <div className="relative bg-black rounded-3xl p-2.5 shadow-2xl border border-gray-700 h-full"
+                  {/* iPhone Body */}
+                  <div className="relative bg-gradient-to-b from-gray-900 via-black to-gray-900 rounded-3xl overflow-hidden h-full shadow-2xl"
                     style={{
-                      boxShadow: '0 25px 70px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.15)',
+                      boxShadow: '0 20px 60px rgba(0,0,0,0.95), inset -1px 1px 2px rgba(255,255,255,0.08), inset 1px -1px 2px rgba(0,0,0,0.9)',
+                      border: '1px solid rgba(255,255,255,0.1)',
                     }}
                   >
-                    {/* Screen with rounded corners */}
-                    <div className="relative bg-black rounded-3xl overflow-hidden h-full">
+                    {/* Screen bezel */}
+                    <div className="absolute inset-2 bg-black rounded-2xl overflow-hidden">
                       {/* Dynamic Island / Notch */}
-                      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 z-20 w-32 h-6 bg-black rounded-b-3xl border border-gray-800" />
+                      <div className="absolute top-2 left-1/2 transform -translate-x-1/2 z-20 w-24 h-5 bg-black rounded-2xl border border-gray-900" />
                       
                       {/* Screen Display - Image */}
-                      <div className="relative w-full h-full">
-                        <img
-                          src={featuredProject.image}
-                          alt={featuredProject.title}
-                          className="w-full h-full object-cover"
-                        />
-                        
-                        {/* Screen overlay for glass effect */}
-                        <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/10" />
-                      </div>
+                      <img
+                        src={featuredProject.image}
+                        alt={featuredProject.title}
+                        className="w-full h-full object-cover"
+                      />
+                      
+                      {/* Screen overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-b from-white/3 via-transparent to-black/20 pointer-events-none" />
                     </div>
 
-                    {/* iPhone Home Indicator */}
-                    <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-white rounded-full opacity-40" />
+                    {/* Home Indicator */}
+                    <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-0.5 bg-white rounded-full opacity-30" />
                   </div>
                 </div>
 
-                {/* BACK - Camera Side (iPhone 11/12 Modern Style) */}
+                {/* BACK - Camera Side */}
                 <div
                   className="w-full h-full absolute inset-0"
                   style={{
@@ -197,65 +196,81 @@ export default function Projects() {
                     transform: 'rotateY(180deg)',
                   }}
                 >
-                  {/* iPhone Back - Modern Dark Gray */}
-                  <div className="relative bg-gradient-to-b from-gray-800 via-gray-900 to-black rounded-3xl p-2.5 shadow-2xl border border-gray-700 h-full"
+                  {/* iPhone Back */}
+                  <div className="relative bg-gradient-to-br from-gray-700 via-gray-800 to-black rounded-3xl h-full overflow-hidden shadow-2xl"
                     style={{
-                      boxShadow: '0 25px 70px rgba(0,0,0,0.9), inset 0 -1px 0 rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)',
+                      boxShadow: '0 20px 60px rgba(0,0,0,0.95), inset -1px 1px 3px rgba(255,255,255,0.05), inset 1px -1px 3px rgba(0,0,0,0.8)',
+                      border: '1px solid rgba(255,255,255,0.08)',
                     }}
                   >
-                    {/* Back panel with metallic finish */}
-                    <div className="relative bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 rounded-3xl overflow-hidden h-full">
-                      {/* Glossy reflection */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/30" />
-                      
-                      {/* Camera Module - Square housing (iPhone 11/12 style) */}
-                      <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-black rounded-2xl"
-                        style={{
-                          boxShadow: '0 8px 20px rgba(0,0,0,0.6), inset 0 1px 2px rgba(0,0,0,0.8)'
-                        }}
-                      >
-                        {/* Camera lenses arrangement */}
-                        <div className="w-full h-full flex items-center justify-center">
-                          {/* Top-left lens */}
-                          <div className="absolute top-4 left-4 w-10 h-10 bg-gray-900 rounded-full"
+                    {/* Glass back shine */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-50" />
+                    
+                    {/* Camera Module */}
+                    <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-24 h-28 bg-black rounded-2xl"
+                      style={{
+                        boxShadow: '0 10px 30px rgba(0,0,0,0.8), inset 0 1px 3px rgba(0,0,0,0.9), inset 0 -1px 2px rgba(255,255,255,0.05)'
+                      }}
+                    >
+                      {/* Cameras Grid */}
+                      <div className="w-full h-full flex items-center justify-center p-2">
+                        {/* Left column */}
+                        <div className="flex flex-col gap-3 mr-2">
+                          {/* Cam 1 */}
+                          <div className="w-7 h-7 bg-gradient-to-br from-gray-800 to-black rounded-full"
                             style={{
-                              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.9), 0 2px 6px rgba(0,0,0,0.8)'
+                              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.6)'
                             }}
                           >
-                            <div className="w-full h-full bg-gradient-to-br from-gray-700 to-black rounded-full" />
+                            <div className="w-full h-full bg-radial-circle rounded-full" 
+                              style={{
+                                background: 'radial-gradient(circle at 30% 30%, #1a1a1a, #000)'
+                              }}
+                            />
                           </div>
                           
-                          {/* Top-right lens */}
-                          <div className="absolute top-4 right-4 w-10 h-10 bg-gray-900 rounded-full"
+                          {/* Cam 3 - Bottom Left */}
+                          <div className="w-7 h-7 bg-gradient-to-br from-gray-800 to-black rounded-full"
                             style={{
-                              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.9), 0 2px 6px rgba(0,0,0,0.8)'
+                              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.6)'
                             }}
                           >
-                            <div className="w-full h-full bg-gradient-to-br from-gray-700 to-black rounded-full" />
+                            <div className="w-full h-full rounded-full" 
+                              style={{
+                                background: 'radial-gradient(circle at 30% 30%, #1a1a1a, #000)'
+                              }}
+                            />
                           </div>
+                        </div>
 
-                          {/* Bottom-left lens */}
-                          <div className="absolute bottom-4 left-4 w-10 h-10 bg-gray-900 rounded-full"
+                        {/* Right column */}
+                        <div className="flex flex-col gap-3 ml-2">
+                          {/* Cam 2 - Top Right */}
+                          <div className="w-7 h-7 bg-gradient-to-br from-gray-800 to-black rounded-full"
                             style={{
-                              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.9), 0 2px 6px rgba(0,0,0,0.8)'
+                              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.6)'
                             }}
                           >
-                            <div className="w-full h-full bg-gradient-to-br from-gray-700 to-black rounded-full" />
+                            <div className="w-full h-full rounded-full" 
+                              style={{
+                                background: 'radial-gradient(circle at 30% 30%, #1a1a1a, #000)'
+                              }}
+                            />
                           </div>
 
                           {/* Flash */}
-                          <div className="absolute bottom-4 right-4 w-6 h-6 bg-yellow-100 rounded-sm opacity-70"
+                          <div className="w-4 h-6 bg-yellow-200 rounded-sm opacity-60"
                             style={{
-                              boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.3)'
+                              boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.4)'
                             }}
                           />
                         </div>
                       </div>
+                    </div>
 
-                      {/* Apple Logo */}
-                      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-3xl text-gray-600">
-                        🍎
-                      </div>
+                    {/* Apple Logo */}
+                    <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-2xl text-gray-500 opacity-70">
+                      🍎
                     </div>
                   </div>
                 </div>
