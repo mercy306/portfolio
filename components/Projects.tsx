@@ -151,7 +151,7 @@ export default function Projects() {
                   height: '480px',
                 }}
               >
-                {/* FRONT - Screen Side */}
+                {/* FRONT - Screen Side ONLY - showing game */}
                 <div
                   className="absolute inset-0"
                   style={{
@@ -191,7 +191,7 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* BACK - Camera Side */}
+                {/* BACK - Rotate to show back but rotates away */}
                 <div
                   className="absolute inset-0"
                   style={{
@@ -200,49 +200,8 @@ export default function Projects() {
                     transform: 'rotateY(180deg)',
                   }}
                 >
-                  {/* Back frame - Stainless steel matching front */}
-                  <div className="w-full h-full relative rounded-3xl overflow-hidden"
-                    style={{
-                      background: '#d8d8d8',
-                      boxShadow: `
-                        0 20px 50px rgba(0,0,0,0.4),
-                        inset -1px 0 1px rgba(255,255,255,0.3),
-                        inset 1px 0 1px rgba(0,0,0,0.3),
-                        inset 0 1px 1px rgba(255,255,255,0.2),
-                        inset 0 -1px 1px rgba(0,0,0,0.2)
-                      `,
-                    }}
-                  >
-                    {/* Glass panel with subtle texture */}
-                    <div className="absolute inset-1.5 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-200 rounded-2xl overflow-hidden">
-                      {/* Glass reflection top-left */}
-                      <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-xl" />
-                      
-                      {/* Camera Island */}
-                      <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-24 h-32 rounded-2xl"
-                        style={{
-                          background: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)',
-                          boxShadow: '0 8px 16px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
-                        }}
-                      >
-                        {/* Camera lenses - tight spacing like real iPhone */}
-                        <div className="w-full h-full flex flex-col items-center justify-center gap-4 p-4">
-                          {/* Main camera */}
-                          <div className="w-8 h-8 rounded-full bg-black/90 relative" style={{ boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.5)' }}>
-                            <div className="absolute inset-1.5 rounded-full bg-gradient-to-b from-gray-900 to-black" />
-                          </div>
-                          
-                          {/* Telephoto camera */}
-                          <div className="w-6 h-6 rounded-full bg-black/90 relative" style={{ boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.5)' }}>
-                            <div className="absolute inset-1 rounded-full bg-gradient-to-b from-gray-900 to-black" />
-                          </div>
-                        </div>
-                        
-                        {/* Flash */}
-                        <div className="absolute bottom-4 right-4 w-3 h-4 bg-yellow-50 rounded-sm" style={{ boxShadow: '0 1px 2px rgba(0,0,0,0.4)' }} />
-                      </div>
-                    </div>
-                  </div>
+                  {/* Empty - just shows black when rotated */}
+                  <div className="w-full h-full bg-black rounded-3xl" />
                 </div>
               </motion.div>
             </div>
