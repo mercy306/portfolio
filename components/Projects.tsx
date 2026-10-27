@@ -5,6 +5,19 @@ import { ExternalLink, Github } from 'lucide-react';
 
 const projects = [
   {
+    id: 'shadow-quest',
+    title: 'Shadow Quest 3D RPG',
+    category: 'game',
+    categoryLabel: '3D Action RPG',
+    description:
+      'A full-featured 3D third-person open-world action RPG built with Three.js featuring real-time combat, stealth awareness AI, a multi-phase boss guardian, dynamic weather, mount riding, and 2-player online co-op.',
+    tags: ['Three.js', 'JavaScript', 'WebSockets', 'Web Audio API', 'Vite'],
+    image: '/shadow-quest.png',
+    github: 'https://github.com/mercy306/shadow-quest',
+    live: 'https://mercy306.github.io/shadow-quest/',
+    featured: true,
+  },
+  {
     id: 'counselconnect',
     title: 'Online Counselling Platform',
     category: 'web',
