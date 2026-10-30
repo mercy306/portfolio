@@ -160,11 +160,36 @@ export default function Projects() {
                       {project.categoryLabel}
                     </span>
                     <h4 className="text-lg font-bold text-white mt-2 mb-2">
-                      {project.title}
+                      {project.live ? (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-[#66D9ED] transition-colors inline-flex items-center gap-1.5"
+                        >
+                          {project.title}
+                          <ExternalLink className="w-4 h-4 opacity-70" />
+                        </a>
+                      ) : (
+                        project.title
+                      )}
                     </h4>
-                    <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                    <p className="text-slate-400 text-sm leading-relaxed mb-3">
                       {project.description}
                     </p>
+                    {project.live && (
+                      <div className="mb-3">
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-cyan-500/10 text-[#66D9ED] border border-[#66D9ED]/30 hover:bg-[#66D9ED] hover:text-[#0b0c10] transition-all"
+                        >
+                          {project.id === 'codebuddy' ? '🤖 Open in Telegram' : '🚀 Open Live Demo'}
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      </div>
+                    )}
                   </div>
 
                   {/* Tech Tags */}
