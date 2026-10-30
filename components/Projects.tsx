@@ -5,6 +5,19 @@ import { ExternalLink, Github } from 'lucide-react';
 
 const projects = [
   {
+    id: 'codebuddy',
+    title: 'CodeBuddy - AI Coding Tutor Bot',
+    category: 'ai',
+    categoryLabel: 'AI & Bot Development',
+    description:
+      'A 24/7 bilingual (English & Amharic) interactive programming tutor bot deployed on the cloud. Features a sandboxed code execution engine, AST parsing, typo-tolerant verification, and conversational lessons across Python, JavaScript, HTML, CSS, SQL, and C#.',
+    tags: ['Python', 'aiogram', 'Telegram Bot API', 'Docker', 'Render', 'SQLite'],
+    image: '/codebuddy.png',
+    github: 'https://github.com/mercy306/codebuddy',
+    live: 'https://t.me/CodeBuddyLearningBot',
+    featured: true,
+  },
+  {
     id: 'counselconnect',
     title: 'Online Counselling Platform',
     category: 'web',
@@ -67,6 +80,19 @@ const projects = [
     image: '/school-management.png',
     github: 'https://github.com/mercy306/school-management',
     live: 'https://school-management-pro-rho.vercel.app',
+    featured: false,
+  },
+  {
+    id: 'small-business-management-system',
+    title: 'Small Business Management System',
+    category: 'web',
+    categoryLabel: 'Web Development',
+    description:
+      'A full-stack business management and point-of-sale platform with multi-tenant accounts, role-based access control, inventory tracking, sales management, and financial reporting.',
+    tags: ['FastAPI', 'React', 'TypeScript', 'Tailwind CSS', 'SQLite'],
+    image: '/school-management.png',
+    github: 'https://github.com/mercy306/small-business-management-system',
+    live: 'https://small-business-management-system.vercel.app',
     featured: false,
   },
 ];
