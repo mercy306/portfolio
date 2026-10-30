@@ -19,12 +19,12 @@ const projects = [
   },
   {
     id: 'shadow-quest',
-    title: 'Shadow Quest 3D RPG',
+    title: 'Shadow Quest: Harar Jugol 3D',
     category: 'game',
-    categoryLabel: '3D Action RPG',
+    categoryLabel: '3D Real-World City & Action RPG',
     description:
-      'A full-featured 3D third-person open-world action RPG built with Three.js featuring real-time combat, stealth awareness AI, a multi-phase boss guardian, dynamic weather, mount riding, and 2-player online co-op.',
-    tags: ['Three.js', 'JavaScript', 'WebSockets', 'Web Audio API', 'Vite'],
+      'A photorealistic 3D cultural reconstruction and action RPG set in Ethiopia\'s UNESCO fortified city of Harar Jugol. Built with Three.js, featuring authentic two-tone cobalt blue architecture, intimate cobblestone alleys, Shoa Gate, live street atmosphere, real-time combat, dynamic weather, and 2-player online co-op.',
+    tags: ['Three.js', 'Harar Jugol 3D', 'JavaScript', 'PBR & Bloom', 'WebSockets', 'Vite'],
     image: '/shadow-quest.png',
     github: 'https://github.com/mercy306/shadow-quest',
     live: 'https://mercy306.github.io/shadow-quest/',
