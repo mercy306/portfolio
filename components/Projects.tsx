@@ -23,8 +23,8 @@ const projects = [
     category: 'game',
     categoryLabel: '3D Real-World City & Action RPG',
     description:
-      'A photorealistic 3D cultural reconstruction and action RPG set in Ethiopia\'s UNESCO fortified city of Harar Jugol. Built with Three.js, featuring authentic two-tone cobalt blue architecture, intimate cobblestone alleys, Shoa Gate, live street atmosphere, real-time combat, dynamic weather, and 2-player online co-op.',
-    tags: ['Three.js', 'Harar Jugol 3D', 'JavaScript', 'PBR & Bloom', 'WebSockets', 'Vite'],
+      'A cinematic 3D cultural reconstruction and action RPG set in Ethiopia\'s UNESCO fortified city of Harar Jugol. Built with Three.js, featuring a CGI cinematic intro fly-through, photo-accurate Shoa Gate (የሐረር በር), intimate cobblestone alleys, live street atmosphere, real-time combat, dynamic weather, and 2-player online co-op.',
+    tags: ['Three.js', 'CGI Cinematic', 'Harar Jugol 3D', 'PBR & Bloom', 'WebSockets', 'Vite'],
     image: '/shadow-quest.png',
     github: 'https://github.com/mercy306/shadow-quest',
     live: 'https://mercy306.github.io/shadow-quest/',
