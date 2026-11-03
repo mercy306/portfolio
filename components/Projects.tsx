@@ -1,9 +1,24 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, BookOpen, X, RotateCcw } from 'lucide-react';
 
-const projects = [
+interface ProjectItem {
+  id: string;
+  title: string;
+  category: string;
+  categoryLabel: string;
+  description: string;
+  tags: string[];
+  image: string;
+  github: string;
+  live: string | null;
+  embedUrl?: string;
+  featured: boolean;
+}
+
+const projects: ProjectItem[] = [
   {
     id: 'sixty-six-bible',
     title: 'The Holy Bible (መጽሐፍ ቅዱስ)',
@@ -14,7 +29,8 @@ const projects = [
     tags: ['React', 'TypeScript', 'Vite', 'PWA / Offline', 'Bilingual UI', 'Tailwind CSS'],
     image: '/holy-bible.png',
     github: 'https://github.com/mercy306/Bible-',
-    live: null,
+    live: 'http://localhost:3001',
+    embedUrl: 'http://localhost:3001',
     featured: true,
   },
   {
@@ -137,7 +153,8 @@ const projects = [
 ];
 
 export default function Projects() {
-  const featuredProject = projects.find((p) => p.featured) || projects[0];
+  const [activeModalProject, setActiveModalProject] = useState<ProjectItem | null>(null);
+  const [iframeKey, setIframeKey] = useState<number>(0);
 
   return (
     <section id="work" className="py-28 relative bg-[#0b0c10] overflow-hidden">
@@ -166,9 +183,40 @@ export default function Projects() {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0b0c10] via-[#0b0c10]/40 to-transparent opacity-80" />
+
+                  {/* Hover Overlay for In-Portfolio Open */}
+                  {project.embedUrl && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setActiveModalProject(project);
+                        setIframeKey((k) => k + 1);
+                      }}
+                      className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-[#0b0c10]/75 backdrop-blur-[2px] transition-opacity duration-300 z-10 cursor-pointer"
+                    >
+                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#161826] border border-[#66D9ED] text-[#66D9ED] text-xs font-semibold shadow-lg shadow-[#66D9ED]/20 hover:scale-105 transition-transform">
+                        <BookOpen className="w-4 h-4" />
+                        Open Inside Portfolio
+                      </span>
+                    </button>
+                  )}
                   
-                  {/* Links */}
-                  <div className="absolute bottom-4 right-4 flex gap-2">
+                  {/* Action Link Icons */}
+                  <div className="absolute bottom-4 right-4 flex gap-2 z-20">
+                    {project.embedUrl && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setActiveModalProject(project);
+                          setIframeKey((k) => k + 1);
+                        }}
+                        className="p-2.5 rounded-full bg-[#66D9ED]/15 border border-[#66D9ED]/40 text-[#66D9ED] hover:bg-[#66D9ED] hover:text-[#0b0c10] transition-all cursor-pointer shadow-md"
+                        aria-label="Open Inside Portfolio"
+                        title="Open Inside Portfolio"
+                      >
+                        <BookOpen className="w-4 h-4" />
+                      </button>
+                    )}
                     <a
                       href={project.github}
                       target="_blank"
@@ -199,7 +247,19 @@ export default function Projects() {
                       {project.categoryLabel}
                     </span>
                     <h4 className="text-lg font-bold text-white mt-2 mb-2">
-                      {project.live ? (
+                      {project.embedUrl ? (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setActiveModalProject(project);
+                            setIframeKey((k) => k + 1);
+                          }}
+                          className="hover:text-[#66D9ED] transition-colors inline-flex items-center gap-1.5 text-left font-bold cursor-pointer"
+                        >
+                          {project.title}
+                          <BookOpen className="w-4 h-4 opacity-70" />
+                        </button>
+                      ) : project.live ? (
                         <a
                           href={project.live}
                           target="_blank"
@@ -216,19 +276,34 @@ export default function Projects() {
                     <p className="text-slate-400 text-sm leading-relaxed mb-3">
                       {project.description}
                     </p>
-                    {project.live && (
-                      <div className="mb-3">
+
+                    {/* Button Row */}
+                    <div className="mb-3 flex flex-wrap items-center gap-2">
+                      {project.embedUrl && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setActiveModalProject(project);
+                            setIframeKey((k) => k + 1);
+                          }}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-cyan-500/10 text-[#66D9ED] border border-[#66D9ED]/40 hover:bg-[#66D9ED] hover:text-[#0b0c10] transition-all cursor-pointer shadow-sm"
+                        >
+                          <BookOpen className="w-3.5 h-3.5" />
+                          <span>📖 Open Inside Portfolio</span>
+                        </button>
+                      )}
+                      {project.live && (
                         <a
                           href={project.live}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-cyan-500/10 text-[#66D9ED] border border-[#66D9ED]/30 hover:bg-[#66D9ED] hover:text-[#0b0c10] transition-all"
                         >
-                          {project.id === 'codebuddy' ? '🤖 Open in Telegram' : '🚀 Open Live Demo'}
+                          {project.id === 'codebuddy' ? '🤖 Open in Telegram' : '🚀 Open Live Tab'}
                           <ExternalLink className="w-3.5 h-3.5" />
                         </a>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </div>
 
                   {/* Tech Tags */}
@@ -248,6 +323,80 @@ export default function Projects() {
           </div>
         </div>
       </div>
+
+      {/* In-Portfolio Live Modal Reader */}
+      {activeModalProject && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/85 backdrop-blur-md"
+          onClick={() => setActiveModalProject(null)}
+        >
+          <div
+            className="relative w-full max-w-6xl h-[92vh] bg-[#0E1013] border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/10 bg-[#141720]">
+              <div className="flex items-center gap-3">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <div className="flex items-center gap-2">
+                  <BookOpen className="w-4 h-4 text-[#66D9ED]" />
+                  <h3 className="text-sm sm:text-base font-bold text-white">
+                    {activeModalProject.title}
+                  </h3>
+                </div>
+                <span className="hidden sm:inline-block text-[11px] px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-[#66D9ED] border border-[#66D9ED]/30 font-mono">
+                  Live Interactive Reader
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setIframeKey((k) => k + 1)}
+                  className="p-2 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors cursor-pointer"
+                  title="Reload App"
+                  aria-label="Reload App"
+                >
+                  <RotateCcw className="w-4 h-4" />
+                </button>
+                <a
+                  href={activeModalProject.embedUrl || activeModalProject.live || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 text-slate-400 hover:text-[#66D9ED] hover:bg-white/5 rounded-lg transition-colors inline-flex items-center gap-1 text-xs"
+                  title="Open in Full Tab"
+                >
+                  <span className="hidden md:inline">Open in Tab</span>
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setActiveModalProject(null)}
+                  className="p-2 text-slate-400 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors cursor-pointer ml-1"
+                  aria-label="Close"
+                  title="Close"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Iframe Content */}
+            <div className="flex-1 w-full h-full bg-[#0E1013] relative">
+              <iframe
+                key={iframeKey}
+                src={activeModalProject.embedUrl || activeModalProject.live || ''}
+                className="w-full h-full border-0"
+                title={activeModalProject.title}
+                allow="clipboard-write; fullscreen"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
