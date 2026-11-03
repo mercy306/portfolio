@@ -6,9 +6,9 @@ import { ExternalLink, Github } from 'lucide-react';
 const projects = [
   {
     id: 'sixty-six-bible',
-    title: 'Sixty-Six: Holy Bible & Study PWA',
+    title: 'The Holy Bible (መጽሐፍ ቅዱስ)',
     category: 'web',
-    categoryLabel: 'PWA & Web Application',
+    categoryLabel: 'Holy Bible & Study PWA',
     description:
       'A full-featured bilingual (Amharic & English) Holy Bible progressive web app with a luxury dark glass UI, full-text scripture search, instant reference navigation, parallel commentaries, daily devotionals, offline reading support, and an interactive Amharic & English on-screen keyboard.',
     tags: ['React', 'TypeScript', 'Vite', 'PWA / Offline', 'Bilingual UI', 'Tailwind CSS'],
