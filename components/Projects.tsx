@@ -5,6 +5,20 @@ import { ExternalLink, Github } from 'lucide-react';
 
 const projects = [
   {
+    id: 'museum-of-you',
+    title: 'The Museum of You - 3D Interactive Birthday Villa',
+    category: 'web',
+    categoryLabel: '3D WebGL & Interactive Experience',
+    description:
+      'An immersive 3D architectural birthday retrospective and celebration villa. Built with Next.js, Three.js, React Three Fiber, and Web Audio API. Features first-person exploration of a modern luxury glass villa, realistic botanicals, memory galleries, interactive candle blowing with confetti fireworks, an acoustic music box synthesizer, and a digital friend wishes guestbook.',
+    tags: ['Next.js', 'Three.js', 'React Three Fiber', 'Web Audio API', 'Tailwind CSS', 'TypeScript'],
+    image: '/museum-of-you.png',
+    github: 'https://github.com/mercy306/museum-of-you',
+    live: 'https://mercy306.github.io/museum-of-you/',
+    featured: true,
+  },
+
+  {
     id: 'codebuddy',
     title: 'CodeBuddy - AI Coding Tutor Bot',
     category: 'ai',
