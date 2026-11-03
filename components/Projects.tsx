@@ -5,6 +5,19 @@ import { ExternalLink, Github } from 'lucide-react';
 
 const projects = [
   {
+    id: 'sixty-six-bible',
+    title: 'Sixty-Six: Holy Bible & Study PWA',
+    category: 'web',
+    categoryLabel: 'PWA & Web Application',
+    description:
+      'A full-featured bilingual (Amharic & English) Holy Bible progressive web app with a luxury dark glass UI, full-text scripture search, instant reference navigation, parallel commentaries, daily devotionals, offline reading support, and an interactive Amharic & English on-screen keyboard.',
+    tags: ['React', 'TypeScript', 'Vite', 'PWA / Offline', 'Bilingual UI', 'Tailwind CSS'],
+    image: '/holy-bible.png',
+    github: 'https://github.com/mercy306/Bible-',
+    live: null,
+    featured: true,
+  },
+  {
     id: 'museum-of-you',
     title: 'The Museum of You - 3D Interactive Birthday Villa',
     category: 'web',
@@ -17,7 +30,6 @@ const projects = [
     live: 'https://mercy306.github.io/museum-of-you/',
     featured: true,
   },
-
   {
     id: 'codebuddy',
     title: 'CodeBuddy - AI Coding Tutor Bot',
