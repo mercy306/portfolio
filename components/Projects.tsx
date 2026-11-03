@@ -156,6 +156,14 @@ export default function Projects() {
   const [activeModalProject, setActiveModalProject] = useState<ProjectItem | null>(null);
   const [iframeKey, setIframeKey] = useState<number>(0);
 
+  const getResolvedUrl = (url?: string | null) => {
+    if (!url) return '';
+    if (typeof window !== 'undefined' && url.includes('localhost:3001')) {
+      return url.replace('localhost', window.location.hostname);
+    }
+    return url;
+  };
+
   return (
     <section id="work" className="py-28 relative bg-[#0b0c10] overflow-hidden">
       {/* Ambient background orb */}
@@ -294,7 +302,7 @@ export default function Projects() {
                       )}
                       {project.live && (
                         <a
-                          href={project.live}
+                          href={getResolvedUrl(project.live)}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-cyan-500/10 text-[#66D9ED] border border-[#66D9ED]/30 hover:bg-[#66D9ED] hover:text-[#0b0c10] transition-all"
@@ -326,11 +334,17 @@ export default function Projects() {
 
       {/* In-Portfolio Live Modal Reader */}
       {activeModalProject && (
-        <div
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/85 backdrop-blur-md"
           onClick={() => setActiveModalProject(null)}
         >
-          <div
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 12 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
             className="relative w-full max-w-6xl h-[92vh] bg-[#0E1013] border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
@@ -363,7 +377,7 @@ export default function Projects() {
                   <RotateCcw className="w-4 h-4" />
                 </button>
                 <a
-                  href={activeModalProject.embedUrl || activeModalProject.live || '#'}
+                  href={getResolvedUrl(activeModalProject.embedUrl || activeModalProject.live)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 text-slate-400 hover:text-[#66D9ED] hover:bg-white/5 rounded-lg transition-colors inline-flex items-center gap-1 text-xs"
@@ -388,14 +402,14 @@ export default function Projects() {
             <div className="flex-1 w-full h-full bg-[#0E1013] relative">
               <iframe
                 key={iframeKey}
-                src={activeModalProject.embedUrl || activeModalProject.live || ''}
+                src={getResolvedUrl(activeModalProject.embedUrl || activeModalProject.live)}
                 className="w-full h-full border-0"
                 title={activeModalProject.title}
                 allow="clipboard-write; fullscreen"
               />
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
     </section>
   );
